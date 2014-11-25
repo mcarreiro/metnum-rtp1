@@ -51,18 +51,35 @@ Por último cabe destacar que la complejidad computacional de esta trinagulació
 
 \subsection{Matriz banda}
 
-Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las caracteristicas de un tipo de matriz llamada "banda", la cual se distingue por tener todas las celdas en 0 salvo en la diagonal ensanchada, es decir, que p celdas a la izquierda y q a la derecha de la diagonal a lo sumo tienen algunos o todos los valores distintos de 0. En nuestro caso, al construir la matriz nos basamos en el tipo de celda, si es el borde frío o una sanguijuela el coeficiente respectivo sera un 1 en la diagonal igualado a la temperatura correspondiente, pero en el caso de ser una celda vacía en la diagonal irá un -4, a los costados un 1 y representando la fila de "arriba" y "abajo" del parabrisas iran un 1 a "m" columnas de distancia de la diagonal. Finalmente la matriz resultante quedará con una banda de ancho m+m, con "m" el ancho del parabrisas.
+Matriz banda es un caso especial de las matrices que ocurre cuando estas concentran toda su información cerca de la diagonal, más especificamente, la matriz tiene en su mayoría elementos nulos y los que no son nulos se concentrar a izquierda y derecha de la diagonal de la matriz, siendo el máximo de estas distancias la que determinaran el ancho de la banda con que se denomine a la matriz y buscandose que las mismas sean relativamente pequeñas en comparación del ancho de la matriz. Por ejemplo, si a lo sumo tiene $p$ elementos no nulos a la izquierda y $q$ a la derecha, esta matriz tendrá una banda de $p+q+1$. Hay casos particulares para denominar estas matrices, por ejemplo, cuando $p = q = 0$ esta se denomina diagonal, y en caso de $p = q = 1$  es una tridiagonal.
+La ventaja principal que proporcina este tipo de matriz es la optimización a la hora de su almacenamiento, ya que como la mayoría de los elementos son nulos y los no nulos tiene un ancho fijo, es posible guardarlos en una matriz mucho menor con solo el tamaño de la banda como ancho, ahorrando gran cantidad de memoria.
 
 Aca podemos ver un ejemplo de una matriz banda:
 
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[scale=0.70]{imagenes/matriz_banda.jpg} 
-\caption{Matriz banda 7x7} 
-\end{center}
-\end{figure}
+\emph{ Matriz banda tridiagonal } 
+\[ \left( \begin{array}{ccccccc}
+d & q & 0 & 0 & 0 & 0 \\
+p & d & q & 0 & 0 & 0 \\
+0 & p & d & q & 0 & 0 \\
+0 & 0 & p & d & q & 0 \\
+0 & 0 & 0 & p & d & q \\
+0 & 0 & 0 & 0 & p & d \end{array} 
+\right)\] 
+
+En el ejemplo se puede ver como se forma la banda sobre la diagonal, con la mayoría de elementos nulos fuera de la misma. Por lo tanto para ahorrar espacio se puede optimizar su almacenamiento de la siguiente forma:
+
+\emph{ Almacenamiento sólo de la banda de la matriz original } 
+\[ \left( \begin{array}{ccc}
+0 & d & q \\
+p & d & q \\
+p & d & q \\
+p & d & q \\
+p & d & q \\
+p & d & 0 \end{array} 
+\right)\] 
 
 
+En la sección Desarrollo mostraremos como aprovecharemos las ventajas de este tipo de estructura para resolver el problema planteado de una forma más eficiente. 
 
 
 
