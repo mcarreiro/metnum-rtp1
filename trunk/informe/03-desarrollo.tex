@@ -73,8 +73,13 @@ Este es un hecho importante ya que las matrices banda tienen caracteristicas esp
 
 El problema de representar la matriz original es que la mayoría de los valores son 0 y solo importan los elementos de la banda de la matriz, por lo tanto una forma de optimizar espacialmente es solo guardar la banda, con lo que se logra reducir considerablemente el espacio en esta representación, ya que suponiendo que se tiene un parabrisas de $n$ filas y $m$ columnas, el tamaño de la matriz original sería de $(n*m)^2$, mientras que con la optimización de matriz banda queda de tamaño $(n*m)*(2*m+1) \approx (n*m^2)$ .
 
-El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotandola de forma que quede vertical, quedando en el centro los elementos de la diagonal dependiendo de lo que haya en esa posición, ya que en el caso de que sea vacía esta deberá tener coeficientes de las posiciones adyacentes.
+El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotandola de forma que quede vertical, quedando en el centro los elementos de la diagonal dependiendo de lo que haya en esa posición, ya que en el caso de que sea vacía esta deberá tener coeficientes de las posiciones adyacentes. Además se adiciona una columna más para representar la temperatura en esa posición.
 Aúnque uno podría pensar que ya que solo hay 4 elementos no nulos máximo en cada fila se podria optimizar guardando esos 4 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
+La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si es la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión \[
+t_{ij} = -100 para i=0 ó j=0
+\]
+
+ 
 
 El algoritmo consta de dos etapas, la construcción de la matriz que representara la banda y la resolución del problema utilizando la misma.
 
@@ -86,7 +91,7 @@ por cada posición del parabrisas //O(N*M)
 		
               si en esa posición hay una SANGUIJUELA:
 			
-                    bandMatrix[pos][ancho] = 1;
+                    matriz banda e [pos][ancho] = 1;
                     resultados[pos] = ts;
 		
               si esa posición es borde FRIO:
