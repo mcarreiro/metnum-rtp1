@@ -198,7 +198,7 @@ Lo primero que se realiza es ordenar las sanguijuelas según su distancia al cen
 Al ser una solución golosa (greedy), elige la siguiente sanguijuela siempre y cuando no se haya enfríado el punto medio y haya salido del estado crítico. La elección está dada por la sanguijuela más cerca todavía no elegida en una previa iteración.\\
 Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad final es:  $O(n.log(n) + n*RA)$. Notar que esa última $n$ es en el peor caso que tengamos que eliminar todas las sanguijuelas, pero debería ser un $k < n$.
 
-\newpage
+
 
 \begin{algorithm}
 \caption{Solución Greedy}\label{euclid}
