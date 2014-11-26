@@ -599,8 +599,8 @@ int main(int argc, char *argv[]) {
 	    //cout << "Temperatura Punto Critico" << windshield->middlePointTemp() << "\n";
             windshield->removeLeachesByGreedy();
         }
-		if(argv[3] == string("2")){
-			windshield->resolveBandMatrix();
+	if(argv[3] == string("2")){
+            windshield->resolveBandMatrix();
             windshield->solucionRandom();
         }
         

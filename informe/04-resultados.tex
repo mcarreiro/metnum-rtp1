@@ -111,6 +111,12 @@ Anotamos que agregar un análisis de resultados no vale la pena ya que son el mi
 \subsection{Caso solución no es el mas cercano}
 
 A continuación analizaremos un caso en el cual se debe eliminar una sanguijuela que no es la más cercana para efectivamente poder reducir la temperatura en punto crítico.
+Los datos exactos de este test son:\\
+Medidas: 100 x 100 \\* 
+discretización:1 \\* 
+radio: 0.9 \\* 
+tempreratura sanguijuelas:450 \\* 
+Posiciónes sanguijuelas:(49, 38);(57, 60);(57, 37);(39, 37);(36, 47) \\* 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[scale=0.40]{imagenes/test6.png} 
@@ -132,28 +138,30 @@ que la temperatura esté por debajo de los 235 grados sin necesidad de eliminar 
 \endminipage\hfill
 \minipage{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.40]{imagenes/test6_solucion_real.png} 
-\caption{Solución real} 
+\includegraphics[scale=0.40]{imagenes/test6_random.png} 
+\caption{Solución Random 1} 
         \end{center}
 \endminipage\hfill 
-
-
+\end{figure}
+\clearpage
+\begin{figure}[htb]
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_random_2.png} 
+\caption{Solución random 2} 
+        \end{center}
+\endminipage\hfill 
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_random_3.png} 
+\caption{Solución random 3} 
+        \end{center}
+\endminipage\hfill 
 \end{figure}
 
-Los datos exactos de este test son:
-
-Medidas: 100 x 100 \\* 
-discretización:1 \\* 
-radio: 0.9 \\* 
-tempreratura sanguijuelas:450 \\* 
-Posiciónes sanguijuelas:\\* 
-49 38\\* 
-57 60\\* 
-57 37\\* 
-39 37\\* 
-36 47 \\* 
 
 El greedy mató primero a la sanguijuela de la posición (49,38) ya que era la mas cercana. Sin embargo si mataba primero la (57,60) la temperatura en el punto crítico disminuía lo suficiente. Esto pudimos corroborarlo al correr el test nuevamente sin esta última sangijuela y comprobando que tanto el greedy como random no mataban ninguna sangijuela ya que el punto crítica estaba por debajo de 235 grados celcius.
+El random por otro lado nos dió 3 resultados distintos de los cuales dos son válidos. Cabe destacar sin embargo que el erroneo nos lo devolvió 2 veces, por lo que podemos decir que tuvo un 50\% de efectividad. 
 
 \subsubsection{Variando la granularidad}
 
@@ -169,7 +177,22 @@ Como vimos anteriormente, la temperatura en el punto crítico varía según la g
 \endminipage\hfill
 \minipage{0.5\textwidth}
 \begin{center}
-\includegraphics[scale=0.40]{imagenes/test6_g08_real.png} 
+\includegraphics[scale=0.40]{imagenes/test6_g08_random.png} 
+\caption{Solución real} 
+        \end{center}
+\endminipage\hfill 
+\end{figure}
+\begin{figure}[htb]
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_g08_random_2.png} 
+\caption{Solución Greedy} 
+
+        \end{center}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_g08_random_3.png} 
 \caption{Solución real} 
         \end{center}
 \endminipage\hfill 
