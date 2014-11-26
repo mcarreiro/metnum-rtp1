@@ -110,7 +110,7 @@ Anotamos que agregar un análisis de resultados no vale la pena ya que son el mi
 \clearpage
 \subsection{Caso solución no es el mas cercano}
 
-A continuación analizaremos un caso en el cual se debe eliminar una sanguijuela que no es la más cercana para efectivamente poder reducir la temperatura en punto crítico.
+A continuación analizaremos un caso en el cual se debe eliminar una sanguijuela que no es la más cercana para efectivamente poder reducir la temperatura en punto crítico. Lo Chequearemos tanto para Greedy como para el Random, haciendo 3 corridas para este último ya que sabemos que su comportamiento es fluctuoso.
 Los datos exactos de este test son:\\
 Medidas: 100 x 100 \\* 
 discretización:1 \\* 
@@ -165,7 +165,7 @@ El random por otro lado nos dió 3 resultados distintos de los cuales dos son v�
 
 \subsubsection{Variando la granularidad}
 
-Como vimos anteriormente, la temperatura en el punto crítico varía según la granularidad que le demos. Veamos entonces que pasa si aumentamos la granularidad (0.8 en vez de 1).
+Como vimos anteriormente, la temperatura en el punto crítico varía según la granularidad que le demos. Veamos entonces que pasa si aumentamos la granularidad (H = 0.8 en vez de 1).
 
 \begin{figure}[htb]
 \minipage{0.5\textwidth}
@@ -178,24 +178,25 @@ Como vimos anteriormente, la temperatura en el punto crítico varía según la g
 \minipage{0.5\textwidth}
 \begin{center}
 \includegraphics[scale=0.40]{imagenes/test6_g08_random.png} 
-\caption{Solución real} 
+\caption{Solución Random 1} 
         \end{center}
 \endminipage\hfill 
 \end{figure}
+\clearpage
 \begin{figure}[htb]
 \minipage{0.5\textwidth}
 \begin{center}
 \includegraphics[scale=0.40]{imagenes/test6_g08_random_2.png} 
-\caption{Solución Greedy} 
+\caption{Solución Random 2} 
 
         \end{center}
 \endminipage\hfill
 \minipage{0.5\textwidth}
 \begin{center}
 \includegraphics[scale=0.40]{imagenes/test6_g08_random_3.png} 
-\caption{Solución real} 
+\caption{Solución Random 3} 
         \end{center}
 \endminipage\hfill 
 \end{figure}
 
-Como le aumentamos la granularidad aumentó la temperatura del punto central de tal forma que provocó que tampoco bastase eliminando una sola sangijuela, obteniendo así la misma cantidad de sangijuelas tanto en al solución real como en la greedy.
+Como le aumentamos la granularidad aumentó la temperatura del punto central de tal forma que provocó que tampoco bastase eliminando una sola sangijuela, obteniendo así la misma cantidad de sangijuelas tanto en al solución real como en la greedy. El Random esta vez devolvió un sólo resultado correcto ya que los otros dos mataron sanguijuelas de más.
