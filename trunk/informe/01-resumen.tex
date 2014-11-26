@@ -5,8 +5,10 @@ cantidad acotada de variables del problema (sólo las relevantes).
 
 El problema en cuestión es representar un parabrisas al cual se le adhieren sanguijuelas que le producen calor en un radio de las mismas. Queremos evitar que el parabrisas llegue a un punto crítico, que implicaría la destrucción de este. El punto crítico ocurre cuando el punto (los puntos) del centro tienen más de 235${}^o$C. Para evitar que llegue al punto crìtico debemos deshacernos de las sanguijuelas pero no tenemos la energía para destruirlas a todas, por lo que tenemos que achicar la cantidad de sanguijuelas a eliminar de forma tal que el parabrisas no se rompa.
 
-La modelización del mismo no es trivial. Es más, podría decirse que este proceso es mucho más complejo y costoso que la solución en sí. ¿Por qué? porque la creación de la matriz que represente al parabrisas y el cálculo de las temperaturas en cada punto, si no se usa buen método, podría llegar a demorar mucho tiempo.
+La modelización del mismo no es trivial. Es más, podría decirse que este proceso es mucho más complejo y costoso que la solución en sí. ¿Por qué? porque la creación de la matriz que represente al parabrisas y el cálculo de las temperaturas en cada punto, si no se usa buen método, podría llegar a demorar mucho tiempo. 
 
-Por esto es que a lo largo de este tp haremos mucho foco en como calcular las temperaturas, como optimizar el espacio ocupado por la matriz obtenida y como optimizar lo más posible todas las operaciones matriciales.
+Por esto es que a lo largo del TP haremos mucho foco en como representar en forma de matriz el parabrisas, como este puede llegar a tener propiedades que utilizaremos para ahorrar el espacio ocupado. Una vez que tengamos esto, necesitamos saber si realmente estámos bajo un punto crítico. Esto estará determinado por la posición $(altura/2,ancho/2)$ (donde altura y ancho son las medidas correspondientes de la matriz que discretiza el parabrisas), y finalmente necesitamos deshacernos de las sanguijuelas para poder seguir navegando.
+
+Una vez que tengamos esto plantearemos casos de test interesantes para analizar el tiempo de decisión de una situación de peligro y que el método elegido para deshacernos de las sanguijuelas nos minimiza (aunque sea localmente) la cantidad a destruir.
 
 
