@@ -88,6 +88,7 @@ public:
 	void solucionRandom();
 
 	bool isCooledDown();
+	float middlePointTemp();
 	void printCoreTemp();
 
 	void orderLeachesCentrically(); //Bajar a prvidado
@@ -493,10 +494,17 @@ void Windshield::restoreLeachesForAnotherRound(vector<int> indexesLeachesRemoved
 }
 
 bool Windshield::isCooledDown(){
-	int xCenter = m/2+1;
-	int yCenter = n/2+1;
-
+	int xCenter = m/2;
+	int yCenter = n/2;
+	
 	return matrix[xCenter][yCenter]->temp < 235;
+}
+
+float Windshield::middlePointTemp(){
+	int xCenter = m/2;
+	int yCenter = n/2;
+	cout << "centro x:" << xCenter << " y:"<< yCenter;
+	return matrix[xCenter][yCenter]->temp;
 }
 
 void Windshield::printCoreTemp(){
@@ -588,6 +596,7 @@ int main(int argc, char *argv[]) {
         }
         if(argv[3] == string("1")){
             windshield->resolveBandMatrix();
+	    //cout << "Temperatura Punto Critico" << windshield->middlePointTemp() << "\n";
             windshield->removeLeachesByGreedy();
         }
 		if(argv[3] == string("2")){
