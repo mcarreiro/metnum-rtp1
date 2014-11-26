@@ -592,17 +592,25 @@ int main(int argc, char *argv[]) {
 	Windshield *windshield = new Windshield(a, b, h, r, Ts, CantSanguijuleas, posSanguijuelas);
 	if(argc > 1){
 		if(argv[3] == string("0")){
-            windshield->resolveBandMatrix();
+            windshield->gaussianElimination();
+	cout << "Temperatura Punto Critico" << windshield->middlePointTemp() << "\n";
         }
         if(argv[3] == string("1")){
             windshield->resolveBandMatrix();
-	    //cout << "Temperatura Punto Critico" << windshield->middlePointTemp() << "\n";
-            windshield->removeLeachesByGreedy();
+	    cout << "Temperatura Punto Critico" << windshield->middlePointTemp() << "\n";
+           
         }
 	if(argv[3] == string("2")){
             windshield->resolveBandMatrix();
+            windshield->removeLeachesByGreedy();
+        }
+
+
+		if(argv[3] == string("3")){
+			windshield->resolveBandMatrix();
             windshield->solucionRandom();
         }
+        
         
         windshield->printMatriz(argv[2]);
     }else{
