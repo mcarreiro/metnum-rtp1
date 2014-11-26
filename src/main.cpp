@@ -73,7 +73,7 @@ struct Position {
 class Windshield {
 public:
     Windshield(){};
-	Windshield(int x, int y, float ah, int ar, float temp, int cs, vector< vector<double > > posSanguijuelas);
+	Windshield(int x, int y, float ah, double ar, float temp, int cs, vector< vector<double > > posSanguijuelas);
 
 	vector< vector<double > > sanguijuelasPos;
 	vector< vector<Point *> > matrix;
@@ -152,7 +152,7 @@ void Windshield::matarSanguijuelasRandom(){
     matrix = windshield->matrix;
 }
 
-Windshield::Windshield(int x, int y, float ah, int ar, float temp, int cs, vector< vector<double > > posSanguijuelas) {
+Windshield::Windshield(int x, int y, float ah, double ar, float temp, int cs, vector< vector<double > > posSanguijuelas) {
 	a = x;
 	b = y;
 	h = ah;
@@ -584,15 +584,17 @@ int main(int argc, char *argv[]) {
 	Windshield *windshield = new Windshield(a, b, h, r, Ts, CantSanguijuleas, posSanguijuelas);
 	if(argc > 1){
 		if(argv[3] == string("0")){
-            windshield->gaussianElimination();
+            windshield->resolveBandMatrix();
         }
         if(argv[3] == string("1")){
             windshield->resolveBandMatrix();
-
+            windshield->removeLeachesByGreedy();
         }
-
-	//windshield->solucionRandom();
-      // windshield->showMatriz();
+		if(argv[3] == string("2")){
+			windshield->resolveBandMatrix();
+            windshield->solucionRandom();
+        }
+        
         windshield->printMatriz(argv[2]);
     }else{
     

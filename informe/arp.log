@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.16)  25 NOV 2014 18:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.16)  25 NOV 2014 21:54
 entering extended mode
  %&-line parsing enabled.
 **arp.tex
@@ -657,58 +657,81 @@ File: imagenes/matrizbandaej.png Graphic file (type png)
 <use imagenes/matrizbandaej.png> [10 <./imagenes/matrizbandaej_instancia.png (P
 NG copy)> <./imagenes/matrizbandaej_temp.png>] [11 <./imagenes/matrizej.png (PN
 G copy)> <./imagenes/matrizbandaej.png (PNG copy)>] [12] [13]) [14]
-(./04-resultados.tex
-<imagenes/test5_gran1.png, id=69, 586.8324pt x 442.2924pt>
+(./04-resultados.tex [15]
+<imagenes/test5_gran1.png, id=72, 586.8324pt x 442.2924pt>
 File: imagenes/test5_gran1.png Graphic file (type png)
 
 <use imagenes/test5_gran1.png>
-<imagenes/test5.png, id=70, 586.8324pt x 442.2924pt>
+<imagenes/test5.png, id=73, 586.8324pt x 442.2924pt>
 File: imagenes/test5.png Graphic file (type png)
  <use imagenes/test5.png>
-<imagenes/test5_gran5.png, id=71, 586.8324pt x 442.2924pt>
+<imagenes/test5_gran5.png, id=74, 586.8324pt x 442.2924pt>
 File: imagenes/test5_gran5.png Graphic file (type png)
 
 <use imagenes/test5_gran5.png>
-<imagenes/test5_gran10.png, id=72, 586.8324pt x 442.2924pt>
+<imagenes/test5_gran10.png, id=75, 586.8324pt x 442.2924pt>
 File: imagenes/test5_gran10.png Graphic file (type png)
 
-<use imagenes/test5_gran10.png> [15]
-<imagenes/random_1.png, id=76, 586.8324pt x 442.2924pt>
+<use imagenes/test5_gran10.png> [16
+
+ <./imagenes/test5_gran1.png> <./imagenes/test5.png> <./imagenes/test5_gran5.pn
+g> <./imagenes/test5_gran10.png>]
+File: imagenes/test5.png Graphic file (type png)
+
+<use imagenes/test5.png>
+<imagenes/random_1.png, id=83, 586.8324pt x 442.2924pt>
 File: imagenes/random_1.png Graphic file (type png)
 
 <use imagenes/random_1.png>
-<imagenes/random_2.png, id=77, 586.8324pt x 442.2924pt>
+<imagenes/random_2.png, id=84, 586.8324pt x 442.2924pt>
 File: imagenes/random_2.png Graphic file (type png)
 
 <use imagenes/random_2.png>
-<imagenes/random_3.png, id=78, 586.8324pt x 442.2924pt>
+<imagenes/random_3.png, id=85, 586.8324pt x 442.2924pt>
 File: imagenes/random_3.png Graphic file (type png)
 
-<use imagenes/random_3.png> [16 <./imagenes/test5_gran1.png> <./imagenes/test5.
-png> <./imagenes/test5_gran5.png> <./imagenes/test5_gran10.png>]
-File: imagenes/random_2.png Graphic file (type png)
+<use imagenes/random_3.png> [17
 
-<use imagenes/random_2.png> [17 <./imagenes/random_1.png>]
-<imagenes/tiemposGaussVsBanda.png, id=90, 1099.10625pt x 808.01875pt>
+ <./imagenes/random_1.png> <./imagenes/random_2.png> <./imagenes/random_3.png>]
+ [18]
+File: imagenes/random_2.png Graphic file (type png)
+ <use imagenes/random_2.png> [19
+
+]
+<imagenes/tiemposGaussVsBanda.png, id=99, 1099.10625pt x 808.01875pt>
 File: imagenes/tiemposGaussVsBanda.png Graphic file (type png)
 
 <use imagenes/tiemposGaussVsBanda.png>
-Overfull \hbox (37.40218pt too wide) in paragraph at lines 98--99
+Overfull \hbox (37.40218pt too wide) in paragraph at lines 106--107
  [] 
  []
 
-) [18 <./imagenes/random_2.png>] (./05-discusion.tex [19 <./imagenes/random_3.p
-ng>]) [20 <./imagenes/tiemposGaussVsBanda.png (PNG copy)>]
-(./06-conclusiones.tex [21]) [22] AED: lastpage setting LastPage (./arp.aux)
+[20 <./imagenes/tiemposGaussVsBanda.png (PNG copy)>]
+<imagenes/test6.png, id=104, 586.8324pt x 442.2924pt>
+File: imagenes/test6.png Graphic file (type png)
+ <use imagenes/test6.png>
+<imagenes/test6_greedy.png, id=105, 586.8324pt x 442.2924pt>
+File: imagenes/test6_greedy.png Graphic file (type png)
+
+<use imagenes/test6_greedy.png>
+<imagenes/test6_solucion_real.png, id=106, 586.8324pt x 442.2924pt>
+File: imagenes/test6_solucion_real.png Graphic file (type png)
+
+<use imagenes/test6_solucion_real.png>) [21
+
+ <./imagenes/test6.png> <./imagenes/test6_greedy.png> <./imagenes/test6_solucio
+n_real.png>] (./05-discusion.tex)
+[22] (./06-conclusiones.tex [23]) [24] AED: lastpage setting LastPage
+(./arp.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5451 strings out of 494999
- 71187 string characters out of 1180816
+ 5466 strings out of 494999
+ 71592 string characters out of 1180816
  141019 words of memory out of 3000000
- 8506 multiletter control sequences out of 15000+50000
+ 8518 multiletter control sequences out of 15000+50000
  12226 words of font info for 45 fonts, out of 3000000 for 9000
  54 hyphenation exceptions out of 8191
  32i,13n,43p,1111b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -725,9 +748,9 @@ texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive
 amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
 /cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 >
-Output written on arp.pdf (22 pages, 869584 bytes).
+Output written on arp.pdf (24 pages, 968896 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
+ 166 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
