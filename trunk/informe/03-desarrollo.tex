@@ -89,10 +89,10 @@ T(x,y) = temp_{sanguijuela}
 
 Y por último, en base a las ecuaciones que deben respetar las posiciones vacías vistas anteriormente, en la posición central que representa a la posición actual quedará un -4 y en las de arriba-abajo-izquierda-derecha un 1 en cada una, siendo referenciadas en la matriz banda por las posiciones de la izquierda y derecha de la central, y las que estan a distancia de la banda, por lo tanto, en las puntas de la fila de matriz, y al final de todo un 0 en la columna de resultado. Por lo tanto, cada fila que represente a una posición vacía tendra una distribución inicial de la siguiente forma:
 
-\[ \left( \begin{array}{ccccccccccc}
-t_{ij-1} & 0 & ... & 0 & t_{i-1j} & t_{ij} & t_{i+1j} & 0  & ... & 0 & t_{ij+1}\end{array} 
-\right)\] 
 
+\[ \left( \begin{array}{ccccccccccc}
+1 & 0 & ... & 0 & 1 & -4 & 1 & 0  & ... & 0 & 1\end{array} 
+\right)\] 
 
 El algoritmo consta de dos etapas, la construcción de la matriz que representara la banda y la resolución del problema utilizando la misma.
 
@@ -124,7 +124,22 @@ por cada posición del parabrisas //O(N*M)
 
 \end{verbatim}
 
-\paragraph{Resolución del sistema}
+Continuando con el ejemplo que propusimos cuando empezamos esta sección, la matriz banda resultante sería la siguiente:
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.70]{imagenes/matrizbandaej.png} 
+\caption{Matriz banda del ejemplo} 
+\end{center}
+\end{figure}
+
+\newpage
+
+Aquí se puede observar mejor como se distribuyen los coeficientes de la matriz original que pertenecen a la banda sobre esta nueva representación de ella, y como se $``verticaliza"$ la misma. Como sucedió anteriormente, los espacios en blanco representan los valores nulos.
+
+Hasta este punto tenemos construida la representación de la matriz original en una forma que optimice el almacenamiento de la misma, ahora solo queda resolverla de una forma también optima.
+
+\paragraph{Resolución del sistema} \mbox{}\\
 
 Este algoritmo se basa basicamente en el algoritmo de eliminación gausseana para triangular y luego realizar un back sustitution para obtener el valor de los coeficientes.
 Lo que es remarcable es el hecho de como trabaja en la matriz banda vertical como si fuese la banda en diagonal de la matriz original.
@@ -145,9 +160,8 @@ PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
 
          resultado[i+h] -= resultado[i] * multiplicador;
    
-
-    //BACK SUBSTITUTION
-    PARA CADA FILA DE LA BANDA, DE ABAJO A ARRIBA
+ // EN ESTE PUNTO YA TENGO LA MATRIZ TRIANGULADA SUPERIORMENTE, AHORA SOLO FALTA REALIZAR BACK SUBSTITUTION
+ PARA CADA FILA DE LA BANDA, DE ABAJO A ARRIBA
         fila = i / n;
         for( int h = 1; h <= n; h++){ 
         // COMO ES BANDA ME FIJO SI EN LA DIAGONAL IZQ INF HAY DISTINTO DE 0 PARA PIVOTEAR
@@ -160,20 +174,11 @@ PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
              fila[i-h] - fila[i];
              resultado[i-h] -= resultado[i]* multiplicador;
                 
-             lleno el parabrisas con las temperaturas actuales
+             // y por ùltimo actualizo los valores del parabrisas con las temperaturas actuales
+             
+             Parabrisas[i/ancho +1][j % ancho].temp = actual
 \end{verbatim}
 
-Aca podemos ver un ejemplo para ver como funciona lo explicado en esta sección.
-
-
-Pero en vez de eso al optimizar la matriz banda se genera esta matriz:
-
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.70]{imagenes/matrizbandaej.png} 
-\caption{Matriz banda del ejemplo} 
-\end{center}
-\end{figure}
 
 
 
