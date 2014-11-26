@@ -50,10 +50,10 @@ t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
 \]
 
 \[
-4 t_{ij} - t_{i+1 j} - t_{i j+1} - t_{i-1 j} - t_{i j-1}  = 0
+ - 4 t_{ij} + t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}  = 0
 \]
 
-Nos queda que los coeficientes de la celda actual es 4 y de las contiguas un -1, igualando todo a cero.
+Nos queda que los coeficientes de la celda actual es -4 y de las contiguas un 1, igualando todo a cero.
 Por lo tanto en cada fila de la matriz calculamos la posición que deberia queda cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
 (donde los espacios vacios representan blancos)
 \begin{figure}
@@ -75,11 +75,24 @@ El problema de representar la matriz original es que la mayoría de los valores 
 
 El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotandola de forma que quede vertical, quedando en el centro los elementos de la diagonal dependiendo de lo que haya en esa posición, ya que en el caso de que sea vacía esta deberá tener coeficientes de las posiciones adyacentes. Además se adiciona una columna más para representar la temperatura en esa posición.
 Aúnque uno podría pensar que ya que solo hay 4 elementos no nulos máximo en cada fila se podria optimizar guardando esos 4 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
-La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si es la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión \[
-t_{ij} = -100 para i=0 ó j=0
-\]
+La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si es la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
+\begin{equation}
+T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,a \textrm{ \'o } y = 0,b.
+\label{eq:borde}
+\end{equation}
 
- 
+ El caso para el cual la posición contenga una sanguijuela será similar al de frío, ya que deberá respetar la ecuación
+ \begin{equation}
+T(x,y) = temp_{sanguijuela}
+\label{eq:borde}
+\end{equation}
+
+Y por último, en base a las ecuaciones que deben respetar las posiciones vacías vistas anteriormente, en la posición central que representa a la posición actual quedará un -4 y en las de arriba-abajo-izquierda-derecha un 1 en cada una, siendo referenciadas en la matriz banda por las posiciones de la izquierda y derecha de la central, y las que estan a distancia de la banda, por lo tanto, en las puntas de la fila de matriz, y al final de todo un 0 en la columna de resultado. Por lo tanto, cada fila que represente a una posición vacía tendra una distribución inicial de la siguiente forma:
+
+\[ \left( \begin{array}{ccccccccccc}
+t_{ij-1} & 0 & ... & 0 & t_{i-1j} & t_{ij} & t_{i+1j} & 0  & ... & 0 & t_{ij+1}\end{array} 
+\right)\] 
+
 
 El algoritmo consta de dos etapas, la construcción de la matriz que representara la banda y la resolución del problema utilizando la misma.
 
@@ -91,22 +104,22 @@ por cada posición del parabrisas //O(N*M)
 		
               si en esa posición hay una SANGUIJUELA:
 			
-                    matriz banda e [pos][ancho] = 1;
-                    resultados[pos] = ts;
+                    matrizBanda[pos][ancho] = 1;
+                    resultados[pos]         = temp_sanguijuela;
 		
               si esa posición es borde FRIO:
                     
-                    bandMatrix[pos][ancho] = 1;
-                    resultados[pos] = -100;
-
+                    matrizBanda[pos][ancho] = 1;
+                    resultados[pos]         = -100;
 
               en caso de que esa posición sea VACIA:
-                    bandMatrix[pos][ancho] = -4;
-                    resultados[pos] = 0;              
-                    bandMatrix[pos][ancho-1] = 1;
-                    bandMatrix[pos][0] = 1;
-                    bandMatrix[pos][ancho+1] = 1;
-                    bandMatrix[pos][ancho*2] = 1;
+                    
+                    matrizBanda[pos][ancho]   = -4;
+                    matrizBanda[pos][ancho-1] = 1;
+                    matrizBanda[pos][0]       = 1;
+                    matrizBanda[pos][ancho+1] = 1;
+                    matrizBanda[pos][ancho*2] = 1;
+                    resultados[pos]           = 0; 
 		
 
 \end{verbatim}
@@ -145,9 +158,6 @@ PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
                 
              lleno el parabrisas con las temperaturas actuales
 \end{verbatim}
-
-
-\subsubsection{Ejemplo}
 
 Aca podemos ver un ejemplo para ver como funciona lo explicado en esta sección.
 
