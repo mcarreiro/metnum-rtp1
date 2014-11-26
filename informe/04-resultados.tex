@@ -118,7 +118,7 @@ A continuación analizaremos un caso en el cual se debe eliminar una sanguijuela
 \end{center}
 \end{figure}
 
-Como podemos observar en las imágenes que estan debajo, la solución greedy no es la óptima ya que mató a una sanguijuela extra. Esto es debido a que la principal radiación de calor era producida por el conjunto de 
+Como podemos observar en las imágenes que están debajo, la solución greedy no es la óptima ya que mató a una sanguijuela extra. Esto es debido a que la principal radiación de calor era producida por el conjunto de 
 sanguijuelas que están debajo del punto crítico y no por la mas cercana. Si eliminamos la sanguijuela central de aquel conjunto la radiación de calor emitida por él disminuye drásticamente en el punto crítico produciendo 
 que la temperatura esté por debajo de los 235 grados sin necesidad de eliminar a las mas cercana. 
 
@@ -139,18 +139,40 @@ que la temperatura esté por debajo de los 235 grados sin necesidad de eliminar 
 
 
 \end{figure}
+
 Los datos exactos de este test son:
 
-Medidas: 100 x 100 
-discretización:1 
-radio: 1.40 
-tempreratura sanguijuelas:450 
-Posiciónes sanguijuelas:
-48 37
-58 61
-58 36
-38 36
-35 46
+Medidas: 100 x 100 \\* 
+discretización:1 \\* 
+radio: 0.9 \\* 
+tempreratura sanguijuelas:450 \\* 
+Posiciónes sanguijuelas:\\* 
+49 38\\* 
+57 60\\* 
+57 37\\* 
+39 37\\* 
+36 47 \\* 
 
+El greedy mató primero a la sanguijuela de la posición (49,38) ya que era la mas cercana. Sin embargo si mataba primero la (57,60) la temperatura en el punto crítico disminuía lo suficiente. Esto pudimos corroborarlo al correr el test nuevamente sin esta última sangijuela y comprobando que tanto el greedy como random no mataban ninguna sangijuela ya que el punto crítica estaba por debajo de 235 grados celcius.
 
+\subsubsection{Variando la granularidad}
 
+Como vimos anteriormente, la temperatura en el punto crítico varía según la granularidad que le demos. Veamos entonces que pasa si aumentamos la granularidad (0.8 en vez de 1).
+
+\begin{figure}[htb]
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_g08_greedy.png} 
+\caption{Solución Greedy} 
+
+        \end{center}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.40]{imagenes/test6_g08_real.png} 
+\caption{Solución real} 
+        \end{center}
+\endminipage\hfill 
+\end{figure}
+
+Como le aumentamos la granularidad aumentó la temperatura del punto central de tal forma que provocó que tampoco bastase eliminando una sola sangijuela, obteniendo así la misma cantidad de sangijuelas tanto en al solución real como en la greedy.
