@@ -482,7 +482,7 @@ vector<int> Windshield::removeLeachesByGreedy(){
 		resolveBandMatrix();
 	}
 
-	localSearchOneByZero(indexesLeachesRemoved);
+	//localSearchOneByZero(indexesLeachesRemoved);
 
 	return indexesLeachesRemoved;
 }
