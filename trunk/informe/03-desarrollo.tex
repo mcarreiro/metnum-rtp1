@@ -54,7 +54,7 @@ t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
 \]
 
 Nos queda que los coeficientes de la celda actual es -4 y de las contiguas un 1, igualando todo a cero.
-Por lo tanto en cada fila de la matriz calculamos la posición que deberia queda cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
+Por lo tanto en cada fila de la matriz calculamos la posición que deberia quedar cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
 (donde los espacios vacios representan blancos)
 \begin{figure}
 \begin{center}
@@ -66,7 +66,7 @@ Por lo tanto en cada fila de la matriz calculamos la posición que deberia queda
 
 \newpage
 
-Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las caracteristicas de un tipo de matriz llamada $``banda"$, la cual se distingue por tener todas las celdas en 0 salvo en la diagonal ensanchada, es decir, que $p$ celdas a la izquierda y $q$ a la derecha de la diagonal a lo sumo tienen algunos o todos los valores distintos de 0. 
+Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las caracteristicas de la matriz $``banda"$ explicada anteriormente. 
 Este es un hecho importante ya que las matrices banda tienen caracteristicas especiales de las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana.
 
 \subsubsection{Optimización}
@@ -74,13 +74,13 @@ Este es un hecho importante ya que las matrices banda tienen caracteristicas esp
 El problema de representar la matriz original es que la mayoría de los valores son 0 y solo importan los elementos de la banda de la matriz, por lo tanto una forma de optimizar espacialmente es solo guardar la banda, con lo que se logra reducir considerablemente el espacio en esta representación, ya que suponiendo que se tiene un parabrisas de $n$ filas y $m$ columnas, el tamaño de la matriz original sería de $(n*m)^2$, mientras que con la optimización de matriz banda queda de tamaño $(n*m)*(2*m+1) \approx (n*m^2)$ .
 
 El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotandola de forma que quede vertical, quedando en el centro los elementos de la diagonal dependiendo de lo que haya en esa posición, ya que en el caso de que sea vacía esta deberá tener coeficientes de las posiciones adyacentes. Además se adiciona una columna más para representar la temperatura en esa posición.
-Aúnque uno podría pensar que ya que solo hay 4 elementos no nulos máximo en cada fila se podria optimizar guardando esos 4 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
-La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si es la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
+Aúnque uno podría pensar que ya que solo hay 5 elementos no nulos máximo en cada fila se podria optimizar guardando esos 5 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
+La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si en la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
 \begin{equation}
-T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,a \textrm{ \'o } y = 0,b.
+T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,a \textrm{ \'o } y = 0,b. 
 \label{eq:borde}
 \end{equation}
-
+Donde a es ancho y b alto.\\
  El caso para el cual la posición contenga una sanguijuela será similar al de frío, ya que deberá respetar la ecuación
  \begin{equation}
 T(x,y) = temp_{sanguijuela}
@@ -160,7 +160,8 @@ PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
 
          resultado[i+h] -= resultado[i] * multiplicador;
    
- // EN ESTE PUNTO YA TENGO LA MATRIZ TRIANGULADA SUPERIORMENTE, AHORA SOLO FALTA REALIZAR BACK SUBSTITUTION
+ // EN ESTE PUNTO YA TENGO LA MATRIZ TRIANGULADA SUPERIORMENTE, AHORA SOLO FALTA REALIZAR
+ // BACK SUBSTITUTION
  PARA CADA FILA DE LA BANDA, DE ABAJO A ARRIBA
         fila = i / n;
         for( int h = 1; h <= n; h++){ 
@@ -185,12 +186,12 @@ PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
 
 \section{Eliminar sanguijuelas}
 
-La resolución del problema de evitar el punto crítico en el centro del parabrisas consiste en la eliminación de sanguijuelas. Suponiendo la existencia de $n$ sanguijuelas, los cantidad de subconjuntos a probar son $2^n$. Es un número que crece rápidamente y si bien se puede resolver por fuerza bruta (ayudados por Backtracking y derivados), suponemos que encontrar el mínimo tiene un orden exponencial en la cantidad de sanguijuelas.
+La resolución del problema de evitar el punto crítico en el centro del parabrisas consiste en la eliminación de sanguijuelas. Suponiendo la existencia de $n$ sanguijuelas, la cantidad de subconjuntos a probar son $2^n$. Es un número que crece rápidamente y si bien se puede resolver por fuerza bruta (ayudados por Backtracking y derivados), suponemos que encontrar el mínimo tiene un orden exponencial en la cantidad de sanguijuelas.
 
 Finalmente, planteamos dos tipos de solución a modo de comparación. Estos serán detallados más adelante. Ambas son heurísticas por lo mencionado anteriormente.
 
 \subsection{Punto Crítico}
-En un parabrisas real el punto crítico se determina por el punto exacto del medio del parabrisas, en la posición (largo/2, ancho/2), pero en nuestra estructura de datos que representa al parabrisas esta puede no llegar a tener un punto exacto dependiendo de la discretización que tenga el mismo. Por lo tanto tenemos dos casos, el caso $"$trivial$"$ es hay un punto exacto donde cae el punto crítico en el parabrisas, en ese caso elegimos ese. En el caso contrario, cuando tomamos la mitad del largo y ancho del parabrisas para elegir el punto crítico este no sera un número entero, por lo tanto redondearemos para abajo y el punto crítico que consideraremos se priorizara teniendo el cuenta el que esta más arriba a la izquierda.
+En un parabrisas real el punto crítico se determina por el punto exacto del medio del parabrisas, en la posición (largo/2, ancho/2), pero en nuestra estructura de datos que representa al parabrisas esta puede no llegar a tener un punto exacto dependiendo de la discretización que tenga el mismo. Por lo tanto decidimos tomar la celda de la posición (filas/2,columnas/2), ya que en nuestra discretización sería una buena aproximación al centro. En caso de haber fila o columna impar tomamos la parte entera de la división.
 
 \subsection{Solución Greedy}
 Esta solución consiste en ir seleccionando las sanguijuelas más cercanas al punto medio hasta que el punto central esté por debajo de 235 Cº. Al no ser una solución exacta es posible que eliminar la más cercana al centro no pertenezca a la mejor solución, pero es intuitivo suponer que la sanguijuela que más cause calor al punto medio esté cerca del mismo. \\
@@ -206,7 +207,7 @@ Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad fin
 \State $\textit{orderLeachesByDistanceToCenter()}$
 \State $\textit{leachesToRemove} \gets []$
 \Do
-    \State leachesToRemove.add(this->removeFirstNotRemovedLeachOrderedCentrically())
+    \State leachesToRemove.add(this.removeFirstNotRemovedLeachOrderedCentrically())
   \doWhile{$not isCooledDown()$} % <--- use \doWhile for the "while" at the end
 \State $\textit{return leachesToRemove;}$
 \end{algorithmic}
@@ -232,7 +233,7 @@ Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad fin
 \subsubsection{Espiral vs centrico}
 	Durante el desarrollo del algoritmo Greedy, nuestro primer acercamiento fue recorrer la matriz de forma espiral. El primer problema que encontramos fue que teníamos un cálculo muy grande para determinar dado un punto del parabrisas, qué sanguijuela era y que recorríamos partes de la matriz que no importaban (en especial los bordes). A su vez, tendíamos a alejarnos del objetivo principal que era preocuparnos por el centro. Es por eso que decidimos ordenar las sanguijuealas según su distancia al centro. Para ahorrar tiempo computacional, este dato está calculado en el momento de la creación de la sanguijuela para su posterior ordenamiento.
 
-\subsubsection{Solución Random}\label{sec:solucionRandom}
+\subsection{Solución Random}\label{sec:solucionRandom}
 En esta solución seleccionamos de nuestro array de posiciones de sanguijuelas (que es el array recibido por parametro, osea con las posiciones sin discretizar) una al azar y la eliminamos. Luego ejecutamos de nuevo el cálculo de las temperaturas y chequeamos si el punto crìtico esta por debajo del 235 Cº.Si no lo está, elegimos otra al azar y repetimos el proceso hasta que lo esté. 
 
 \begin{algorithm}
