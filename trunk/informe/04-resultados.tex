@@ -4,6 +4,20 @@
 \subsection{Introducción}
  Realizamos los experimentos en tres computadoras con procesadores similares y se trató de mantener cualquier otro programa cerrado. Igualmente cada conjunto de test fue resuelto en la misma máquina para que las diferencias sean lo más dependendientes a los inputs y los procesos posible.
 
+\subsection{Temperatura en el punto crítico variando granularidad}
+
+En esta sección queremos ver que ocurre con la temperatura en el punto crítico para distintas granularidades de la misma instancia. Para tal fin vamos a presentar distintos tipos de instancias que pueden ser enriquecedoras para el analisis. Queremos aclarar que no nos pareció relevante el analisis con un sanguijuela sobre el punto crítico ya que la temperatura no sufriría variación alguna. Esto último es debido a que todavía no utilizaremos los metodos de eliminación de sanguijuelas para mantener el punto crítico a menos de 235º
+
+\begin{description}
+
+\item[Caso 1:] 8 sanguijuelas rodeando al punto crítico.
+\item[Caso 2:] Una sanguijuela muy cercana al punto crítico.
+\item[Caso 3:] 5 sanguijuelas alineadas debajo del punto crítico.
+\end{description}
+
+Las condiciones del parabrisas que utilizaremos para los 5 casos seran similiares, un ancho y alto de 1024 (para tener un gran espacio de testeo y cantidad de divisores), con una temperatura de 500º para las sanguijuelas (para que influya pero que a su vez no sean tan determinantes) y un radio de 16 posiciones.
+
+
 \subsection{Caso básico}
 A continuación plantearemos distintos casos de parabrisas con distintas granularidades que utlizaremos durante las pruebas. 
 
