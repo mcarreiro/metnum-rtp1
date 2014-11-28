@@ -232,17 +232,17 @@ En esta solución seleccionamos de nuestro array de posiciones de sanguijuelas (
 \caption{RandomSolution}\label{euclid}
 \begin{algorithmic}[1]
 \Do
-    \State this->randomKill()
-  \doWhile{$not isCooledDown()$} % <--- use \doWhile for the "while" at the end
-\State $\textit{return leachesToRemove;}$
+    \State matarSanguijuelaRandom()
+  \doWhile{$laTemperaturaEsAlta()$} % <--- use \doWhile for the "while" at the end
+\State $\textit{return sanguijuelasAEliminar}$
 \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}
-\caption{randomKill()}\label{euclid}
+\caption{matarSanguijuelaRandom()}\label{euclid}
 \begin{algorithmic}[1]
-\State $\textit{randomRemoveFrom(allLeaches);}$ \Comment{All Leaches is loaded with matrix}
-\State $\textit{recalculateByBandMatrix();}$
+\State $\textit{sanguijuelasAEliminar.agregar(removerSanguijuelaRandom(listaSanguijuelas));}$ \Comment{All Leaches is loaded with matrix}
+\State $\textit{recalculoConMatrizBanda();}$
 \end{algorithmic}
 \end{algorithm}
 

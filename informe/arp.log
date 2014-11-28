@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 20:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 20:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1059,10 +1059,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6517 strings out of 493117
- 90597 string characters out of 6135433
+ 6513 strings out of 493117
+ 90546 string characters out of 6135433
  170611 words of memory out of 5000000
- 9779 multiletter control sequences out of 15000+600000
+ 9775 multiletter control sequences out of 15000+600000
  12871 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,14n,43p,826b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1081,7 +1081,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on arp.pdf (30 pages, 1863758 bytes).
+Output written on arp.pdf (30 pages, 1862670 bytes).
 PDF statistics:
  241 PDF objects out of 1000 (max. 8388607)
  113 compressed objects within 2 object streams
