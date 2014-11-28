@@ -204,28 +204,20 @@ Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad fin
 \begin{algorithm}
 \caption{Solución Greedy}\label{euclid}
 \begin{algorithmic}[1]
-\State $\textit{orderLeachesByDistanceToCenter()}$
-\State $\textit{leachesToRemove} \gets []$
+\State $\textit{ordenoLasSanguijuelasPorCercaníaAlPuntoCrítico() }$
+\State $\textit{sanguijuelasAMatar} \gets []$
 \Do
-    \State leachesToRemove.add(this.removeFirstNotRemovedLeachOrderedCentrically())
-  \doWhile{$not isCooledDown()$} % <--- use \doWhile for the "while" at the end
-\State $\textit{return leachesToRemove;}$
+    \State sanguijuelasAMatar.agregar(obtenerSanguijuelaMasCercana())
+  \doWhile{$ laTemperaturaEsAlta()$} % <--- use \doWhile for the "while" at the end
+\State $\textit{devuelvo sanguijuelasAMatar}$
 \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}
-\caption{isCooledDown()}\label{euclid}
+\caption{laTemperaturaEsAlta()}\label{euclid}
 \begin{algorithmic}[1]
-\State $\textit{recalculateByBandMatrix();}$
-\State $\textit{return (matrix.centerPoint < Ts)}$ \Comment{$TS es la temperatura maxima que soporta el centro$}
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{orderLeachesByDistanceToCenter()}\label{euclid}
-\begin{algorithmic}[1]
-\State $\textit{sort(leaches).by(lambda {|leach,otherLeach| leach.distanceToCenter < otherLeach.distanceToCenter});}$
-\State $\textit{return (matrix.centerPoint < Ts); //TS es la temperatura máxima que soporta el centro}$
+\State $\textit{recalculoConMatrizBanda();}$
+\State $\textit{devuelvo (parabrisas.tempPuntoCritico() $>$ 235)}$
 \end{algorithmic}
 \end{algorithm}
 
