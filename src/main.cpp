@@ -503,7 +503,7 @@ bool Windshield::isCooledDown(){
 float Windshield::middlePointTemp(){
 	int xCenter = m/2;
 	int yCenter = n/2;
-	cout << "centro x:" << xCenter << " y:"<< yCenter;
+	cout << "centro x:" << xCenter << " y:"<< yCenter << endl;
 	return matrix[xCenter][yCenter]->temp;
 }
 
