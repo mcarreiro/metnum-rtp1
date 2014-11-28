@@ -147,37 +147,38 @@ Lo que es remarcable es el hecho de como trabaja en la matriz banda vertical com
 \begin{verbatim}
 
 //PRIMERO LA HAGO TRIANGULAR SUPERIOR
-PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO
+PARA CADA FILA DE LA BANDA, DE ARRIBA A ABAJO:
 		
-   SI NO ES VACIO SE QUE ABAJO HAY TODO CERO, CONTINUO
+   SI NO ES VACIO SE QUE ABAJO HAY TODO CERO, CONTINUO;
    SI ES VACIA DIAGONALIZO:
-        
+   {
          centro = bandMatrix[i][n];
          actual = bandMatrix[i+h][n-h];
-         multiplicador = actual / centro;
-		
+         multiplicador = actual / centro;		
          fila[i+h] - fila[i];
-
          resultado[i+h] -= resultado[i] * multiplicador;
+    }
    
- // EN ESTE PUNTO YA TENGO LA MATRIZ TRIANGULADA SUPERIORMENTE, AHORA SOLO FALTA REALIZAR
+ // EN ESTE PUNTO YA TENGO LA MATRIZ TRIANGULADA SUPERIORMENTE
+ //AHORA SOLO FALTA REALIZAR
  // BACK SUBSTITUTION
- PARA CADA FILA DE LA BANDA, DE ABAJO A ARRIBA
+ PARA CADA FILA i DE LA BANDA, DE ABAJO A ARRIBA
         fila = i / n;
+        columna = i % n;
         for( int h = 1; h <= n; h++){ 
+        // Recorro la banda en forma diagonal
+        // Equivale a recorrer en forma vertical con la matriz normal
         // COMO ES BANDA ME FIJO SI EN LA DIAGONAL IZQ INF HAY DISTINTO DE 0 PARA PIVOTEAR
-           
              centro = bandMatrix[i][n];
-             actual = bandMatrix[i-h][n+h];
-           
+             actual = bandMatrix[i-h][n+h];           
              multiplicador = actual / centro;
 		
-             fila[i-h] - fila[i];
-             resultado[i-h] -= resultado[i]* multiplicador;
+             fila[i-h] -=  fila[i] * multiplicador; // Opero entre filas
+             resultado[i-h] -= resultado[i]* multiplicador; 
                 
-             // y por ùltimo actualizo los valores del parabrisas con las temperaturas actuales
-             
-             Parabrisas[i/ancho +1][j % ancho].temp = actual
+             // y por último actualizo los valores del parabrisas con las temperaturas actuales             
+             Parabrisas[fila][columna].temp = actual
+       }
 \end{verbatim}
 
 
