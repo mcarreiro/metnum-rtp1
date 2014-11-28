@@ -170,7 +170,8 @@ Por lo que se puede observar en los gráficos de como va fluctuando la temperatu
 \newpage
 
 \subsection{Tiempo de corrida variando granularidad}
-
+Utilizando los mismos casos de prueba que para la comparación de temperaturas medimos los tiempos que tomaban los dos algoritmos de resolución normal y banda. Los parámetros que utilizamos en esta oportunidad también son similares a la sección anterior, menos el valor de discretización que es el variable. Los valores que tomamos para este caso estan en el intervalo de [4;50] para el algoritmo de banda y [18;95] para el normal, y la razón de esto es que para valores muy chicos el tiempo de cómputo era tal para el algoritmo normal que el SO mataba el proceso y para valores muy grandes los dos algoritmos empezaban a acercarse al cero por lo que decidimos que era un buen número de limite superior. \\
+A continuación el gráfico de tiempos:
 \begin{figure}[htb]
 \begin{center}
         \includegraphics[scale=0.5]{imagenes/comparacion_tiempos.png}
@@ -178,6 +179,9 @@ Por lo que se puede observar en los gráficos de como va fluctuando la temperatu
         \end{center}
 
 \end{figure}
+
+Por los resultados que obtuvimos se puede ver claramente que para un mismo algoritmo el tiempo de cómputo es similar en los 3 casos para cada valor de discretización, esto se debe a que el tamaño del parabrisas es el mismo. Además se puede ver que los dos algoritmos se comportan de una forma parecida (de forma exponencial a menor valor de discretización), con la diferencia de que los tiempos del algoritmo normal tardan 350 veces más aproximadamente, siendo esto esperado debido a que el algoritmo que utiliza la matriz banda optimiza cuestiones tanto espaciales como temporales
+
 \subsection{Caso básico}
 \newpage
 A continuación plantearemos distintos casos de parabrisas con distintas granularidades que utlizaremos durante las pruebas. 
@@ -272,17 +276,7 @@ Veamos ahora para la misma matriz como se comporta nuestro otro algoritmo.
 
 En todas las corridas obtuvimos el mismo resultado y demoraron lo mismo. Era de esperarse, ya que efectivamente en este caso, la sanguijuela a eliminar era la del medio.
 \newpage
-\subsection{Resultados Banda VS Gaussiano}
-Veamos ahora que realmente valió la pena la mejora al saber que era matriz banda en cuanto a tiempos en comparación con la eliminación gaussiana.
-Anotamos que agregar un análisis de resultados no vale la pena ya que son el mismo
 
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[scale=0.50]{imagenes/tiemposGaussVsBanda.png} 
-\caption{Gauss VS Banda} 
-\end{center}
-\end{figure}
-\clearpage
 \subsection{Caso solución no es el mas cercano}
 
 A continuación analizaremos un caso en el cual se debe eliminar una sanguijuela que no es la más cercana para efectivamente poder reducir la temperatura en punto crítico. Lo Chequearemos tanto para Greedy como para el Random, haciendo 3 corridas para este último ya que sabemos que su comportamiento es fluctuoso.
