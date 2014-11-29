@@ -101,7 +101,7 @@ Con lo que el sistema quedaría de la siguiente forma: \\
 
 
 Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las características de la matriz $``banda"$ explicada anteriormente. 
-Este es un hecho importante ya que las matrices banda tienen características especiales de las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana, principalmente el hecho de que no es necesario realizar intercambios de filas en el mismo, y esto sucede debido a que la matriz es semidefinida positiva.
+Este es un hecho importante ya que las matrices banda tienen características especiales (como vimos anteriormente) por las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana. Además también tiene la característica de ser semi definida positiva, lo que hace que no sea necesario swapear filas.
 \subsubsection{Optimización}
 
 El problema de representar la matriz original es que la mayoría de los valores son 0 y solo importan los elementos de la banda de la matriz, por lo tanto una forma de optimizar espacialmente es solo guardar la banda, con lo que se logra reducir considerablemente el espacio en esta representación, ya que suponiendo que se tiene un parabrisas de $n$ filas y $m$ columnas, el tamaño de la matriz original sería de $(n*m)^2$, mientras que con la optimización de matriz banda queda de tamaño $(n*m)*(2*m+1) \approx (n*m^2)$ .
