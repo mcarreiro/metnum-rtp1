@@ -17,7 +17,8 @@ t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
 \]
 
 Nos queda que los coeficientes de la celda actual es -4 y de las contiguas un 1, igualando todo a cero.
-Por lo tanto en cada fila de la matriz calculamos la posición que deberia quedar cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
+Por lo tanto en cada fila de la matriz calculamos la posición que deberia quedar cada celda contigua en la matriz aplanada.
+Para poner un ejemplo, en este caso con tenemos un parabrisas de 6x6 granulado en 1 y una sanguijuela de radio 1 con temperatura de 500 en la primera posición, con lo que el sistema quedaría de la siguiente forma: \\
 (donde los espacios vacios representan blancos)
 \begin{figure}
 \begin{center}
@@ -52,11 +53,9 @@ Class Windshield{
 
 \subsection{Matriz Banda}
 
-En la sección anterior presentamos una forma de resolver nuestro problema representando el parabrisas como un sistema de ecuaciones y aplicando Eliminación Gaussiana. En este sección propondremos una optimización a esto, pero para esto primero necesitamos ver con qué cosas estamos tratando y para eso veamos el siguiente ejemplo:
+En la sección anterior presentamos una forma de resolver nuestro problema representando el parabrisas como un sistema de ecuaciones y aplicando Eliminación Gaussiana. En este sección propondremos una optimización a esto, pero para esto primero necesitamos ver con qué cosas estamos tratando.
 
-En este caso es un parabrisas de 6x6 granulado en 1 y una sanguijuela de radio 1 con temperatura de 500 en la primera posición.
-
-El parabrisas se vería representado asi (hay que tener en cuenta que en realidad hay que espejarlo horizontalmente ya que para nosotros el eje de coordenadas se encuentra arriba a la izquierda):
+Siguiendo el ejemplo de la sección anterior, el parabrisas se vería representado asi (hay que tener en cuenta que en realidad hay que espejarlo horizontalmente ya que para nosotros el eje de coordenadas se encuentra arriba a la izquierda):
 
 \begin{figure}[htb]
 \begin{center}
