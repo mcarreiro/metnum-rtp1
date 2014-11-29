@@ -1,7 +1,35 @@
 \section{Desarrollo}
 
-\subsection{Eliminación Gaussiana}
- A modo de comparación recreamos el clásico método de resolución de Eliminación Gaussiana que consta de la eliminación progresiva de variables en el sistema de ecuaciones, hasta tener sólo una ecuación con una incógnita. Una vez resuelta esta, se procede por sustitución regresiva hasta obtener los valores de todas las variables.
+\subsection{Matriz normal}
+
+Como una primera forma de resolución planeamos el parabrisas como un sistema de ecuaciones (más adelante veremos que el mismo presenta una organización de los elementos no nulos que se denomina $``matriz banda"$, pero por ahora no tendremos en cuenta esto y por consiguiente no realizaremos ninguna optimización al respecto), este se vería representado como una matriz, donde cada columna y cada fila representa a una posición especifica en el parabrisas pero que a su vez cada fila simboliza las ecuaciones que planteo para esa posición. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
+En base a lo que explicamos anteriormente y como la temperatura de cada celda vacía es el promedio de las 4 contiguas, al plantear la ecuación: 
+\[
+t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
+\]
+
+\[
+4 t_{ij} = t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}
+\]
+
+\[
+ - 4 t_{ij} + t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}  = 0
+\]
+
+Nos queda que los coeficientes de la celda actual es -4 y de las contiguas un 1, igualando todo a cero.
+Por lo tanto en cada fila de la matriz calculamos la posición que deberia quedar cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
+(donde los espacios vacios representan blancos)
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.60]{imagenes/matrizej.png} 
+\caption{Matriz de ecuaciones del ejemplo} 
+\end{center}
+\end{figure}
+
+
+\newpage
+
+Por lo tanto la solución a este sistema planteado se hará por medio del clásico método de resolución de Eliminación Gaussiana que consta de la eliminación progresiva de variables en el sistema de ecuaciones, hasta tener sólo una ecuación con una incógnita. Una vez resuelta esta, se procede por sustitución regresiva hasta obtener los valores de todas las variables.
 
 \begin{verbatim}
 Class Windshield{
@@ -39,35 +67,8 @@ El parabrisas se vería representado asi (hay que tener en cuenta que en realida
 
 \newpage
 
-Planteando el parabrisas como un sistema de ecuaciones sin tener en cuenta que es banda y por consiguiente sin realizar ninguna optimización al respecto, este se vería representado como una matriz, donde cada columna y cada fila representa a una posición especifica en el parabrisas pero que a su vez cada fila simboliza las ecuaciones que planteo para esa posición. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
-En base a lo que explicamos anteriormente y como la temperatura de cada celda vacía es el promedio de las 4 contiguas, al plantear la ecuación: 
-\[
-t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
-\]
-
-\[
-4 t_{ij} = t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}
-\]
-
-\[
- - 4 t_{ij} + t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}  = 0
-\]
-
-Nos queda que los coeficientes de la celda actual es -4 y de las contiguas un 1, igualando todo a cero.
-Por lo tanto en cada fila de la matriz calculamos la posición que deberia quedar cada celda contigua en la matriz aplanada, quedando el sistema de ecuaciones de la siguiente forma: \\
-(donde los espacios vacios representan blancos)
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.60]{imagenes/matrizej.png} 
-\caption{Matriz de ecuaciones del ejemplo} 
-\end{center}
-\end{figure}
-
-
-\newpage
-
-Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las caracteristicas de la matriz $``banda"$ explicada anteriormente. 
-Este es un hecho importante ya que las matrices banda tienen caracteristicas especiales de las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana.
+Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las características de la matriz $``banda"$ explicada anteriormente. 
+Este es un hecho importante ya que las matrices banda tienen características especiales de las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana, principalmente el hecho de que no es necesario realizar intercambios de filas en el mismo, aunque esto viene sumado al hecho de que la matriz es además semidefinida positiva y asegurándonos esta ventaja.
 
 \subsubsection{Optimización}
 
@@ -142,7 +143,7 @@ Hasta este punto tenemos construida la representación de la matriz original en 
 \paragraph{Resolución del sistema} \mbox{}\\
 
 Este algoritmo se basa basicamente en el algoritmo de eliminación gausseana para triangular y luego realizar un back sustitution para obtener el valor de los coeficientes.
-Lo que es remarcable es el hecho de como trabaja en la matriz banda vertical como si fuese la banda en diagonal de la matriz original.
+Lo que es remarcable es el hecho de como trabaja en la matriz banda vertical como si fuese la banda en diagonal de la matriz original y la no necesidad de tener que intercambiar filas durante el proceso.
  
 \begin{verbatim}
 
