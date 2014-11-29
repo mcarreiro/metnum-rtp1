@@ -1,14 +1,18 @@
 \section{Conclusiones}
 
+\subsection{Normal vs Banda}
+
+De acuerdo a la experimentación realizada y a los resultados obtenidos no cabe duda que para resolver el problema planteado la mejor solución es utilizar el algoritmo de matriz banda. Principalmente porque los dos algoritmos proporcionan resultados iguales y exactos que resuelven el problema planteado, pero el algoritmo de banda los resuelve en tiempo y espacio extremadamente menor, y esta diferencia se diferencia aún mas a medida que aumenta el tamaño del parabrisas y aumenta la granularidad del mismo, hasta el punto en que al algoritmo normal deja de resolverlo en un tiempo razonable o excede la memoria provocando que se detenga el proceso que ejecuta. Por este motivo se concluye totalmente que el problema se debe solucionar mediante el algoritmo de banda.
+
 \subsection{Random vs Greedy}
 
-Como observamos en los resultados para el caso en el que la sanguijuela/s se encuentran en el medio claramente es mejor el greedy, ya que siempre mata a la sanguijuela correcta a diferencia del random que sólo lo hizo en uno de los 3 intentos. Por otro lado si tenemos en cuenta los tiempos que pueden llegar a demorar recalcular las temperaturas, esto le da todavìa una mayor importancia, ya que se reduce considerablemente el tiempo de ejecución.
+Como observamos en los resultados para el caso en el que la sanguijuela/s se encuentran en el medio claramente es mejor el greedy, ya que siempre mata a la sanguijuela correcta a diferencia del random que sólo lo hizo en uno de los 3 intentos. Por otro lado si tenemos en cuenta los tiempos que pueden llegar a demorar recalcular las temperaturas, esto le da todavía una mayor importancia, ya que se reduce considerablemente el tiempo de ejecución.
 
-Por otro lado en el caso en el que la sangijuela a sacar no era la más cercana, el random en promedio obtuvo mejores resultados. Sin embargo al aumentarle la granularidad esto se revertió nuevamente debido a que aumentó la temperatura del PC y esto provocó que si o si fuese necesario matar por lo menos dos sanguijuelas, entre ellas la mas cercana. \\
+Por otro lado en el caso en el que la sanguijuela a sacar no era la más cercana, el random en promedio obtuvo mejores resultados. Sin embargo al aumentarle la granularidad esto se revertió nuevamente debido a que aumentó la temperatura del PC y esto provocó que si o si fuese necesario matar por lo menos dos sanguijuelas, entre ellas la mas cercana. \\
 Lo que pensamos con respecto a esto es que hay casos bastantes puntuales en los que el greedy falla y el random podría devolver una mejor solución, aunque esto también depende del porcentaje de sanguijuelas que se puedan sacar para solucionar el problema. Es decir, si de 5 sanguijuelas por ejemplo la solución no está en sacar la mas cercana sino cualquiera de las otras 4, el random sería el mejor, pero si la correcta fuera una sola, el random volvería a ser tan o mas ineficiente que el greedy ya que tendría una probabilidad de 1/5 de elegir la correcta la primera vez.\\
 Osea, el random se comportaría mejor que el greedy sólo en el caso de que la sanguijuela a sacar no sea la más cercana y haya otras n/2 (o más) posibles para sacar de forma que resuelvan el problema.
 
-Finalmente conlcuimos que los casos en los que el random sería mejor que el greedy son tan puntuales y nuestro problema, en principio, es tan genérico que son despreciables. Por lo que el greedy termina siendo claramente mejor.
+Finalmente concluimos que los casos en los que el random sería mejor que el greedy son tan puntuales y nuestro problema, en principio, es tan genérico que son despreciables. Por lo que el greedy termina siendo claramente mejor.
 
 
 
