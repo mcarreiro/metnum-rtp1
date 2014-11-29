@@ -39,7 +39,7 @@ El parabrisas se vería representado asi (hay que tener en cuenta que en realida
 
 \newpage
 
-Planteando el parabrisas como un sistema de ecuaciones sin tener en cuenta que es banda y por consiguiente sin realizar ninguna optimización al respecto, la matriz quedaría como el siguiente gráfico, donde en cada fila se representa todo el parabrisas como un vector $'aplanado'$ pero hace referencia a una en particular. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
+Planteando el parabrisas como un sistema de ecuaciones sin tener en cuenta que es banda y por consiguiente sin realizar ninguna optimización al respecto, este se vería representado como una matriz, donde cada columna y cada fila representa a una posición especifica en el parabrisas pero que a su vez cada fila simboliza las ecuaciones que planteo para esa posición. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
 En base a lo que explicamos anteriormente y como la temperatura de cada celda vacía es el promedio de las 4 contiguas, al plantear la ecuación: 
 \[
 t_{ij} = (t_{i+1 j} + t_{i j+1} + t_{i-1 j} + t_{i j-1}) / 4
@@ -77,10 +77,10 @@ El método para construir la representación optimizada de la matriz banda es si
 Aúnque uno podría pensar que ya que solo hay 5 elementos no nulos máximo en cada fila se podria optimizar guardando esos 5 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
 La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si en la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
 \begin{equation}
-T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,a \textrm{ \'o } y = 0,b. 
+T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,m \textrm{ \'o } y = 0,n. 
 \label{eq:borde}
 \end{equation}
-Donde a es ancho y b alto.\\
+Donde m es ancho y n alto.\\
  El caso para el cual la posición contenga una sanguijuela será similar al de frío, ya que deberá respetar la ecuación
  \begin{equation}
 T(x,y) = temp_{sanguijuela}
