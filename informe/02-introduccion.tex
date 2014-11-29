@@ -1,6 +1,6 @@
 \section{Introducci\'on te\'orica}
 
-Dado que la modelización utlizada para este problema es un sistema de ecuaciones y que en base a algunos datos que nos dan (posición de las saniguijuelas, dimensiones y temperaturas de los bordes) tenemos que calcular los valores de muchas celdas, tenemos que buscar la forma de modelar esto óptimamente. 
+Dado que la modelización utilizada para este problema es un sistema de ecuaciones y que en base a algunos datos que nos dan (posición de las sanguijuelas, dimensiones y temperaturas de los bordes) tenemos que calcular los valores de muchas celdas, tenemos que buscar la forma de modelar esto óptimamente. 
 Lo primero que se nos viene a la mente cuando tenemos esto es el método de eliminación gaussiano. Este transforma la matriz de coeficientes en una matriz triangular superior y luego mediante back substitution 
 se pueden obtener todos sus valores. Si bien este método no funciona siempre veremos que para nuestro caso puede otorgarnos soluciones aceptables.
 
@@ -8,7 +8,7 @@ Veamos ahora más en detalle como funciona cada uno de estos algoritmos.
 
 \subsection{Algoritmo de eliminación gaussiana}
 
-Este algoritmo consisnte en restar multiplos de filas entre sí, comenzando desde la primera, con el objetivo de lograr todos ceros por debajo de la diagonal y numeros disintos de cero en la diagonal, 
+Este algoritmo consiste en restar múltiplos de filas entre sí, comenzando desde la primera, con el objetivo de lograr todos ceros por debajo de la diagonal y números distintos de cero en la diagonal, 
 es decir una matriz triangular superior. En el caso que me quedase un 0 en la diagonal el algoritmo comprende la opción de pivoteo (mas adelante demostraremos que en realidad no necesitamos) que consiste en intercambiar 
 filas entre sí para que esto no suceda.
 
@@ -42,18 +42,18 @@ Si entendemos la matriz original como un sistema de ecuaciones con 3 variables i
 1x & 5y & 2z \\
 2x & 3y & 1z \end{array} \right)\] 
 
-Con esta nueva matriz triangulada podríamos calcular facilmente el valor de cada variable ya que de la última ecuación podemos despejar facilmente el valor de Z, reemplazarlo en las otras ecuaciones y así calcular las otras variables.
+Con esta nueva matriz triangulada podríamos calcular fácilmente el valor de cada variable ya que de la última ecuación podemos despejar fácilmente el valor de Z, reemplazarlo en las otras ecuaciones y así calcular las otras variables.
 
 
 
-Por último cabe destacar que la complejidad computacional de esta trinagulación es de O($n^3$). Lo cual puede llegar a un cálculo sumamente extenso si nuestro n es considerablemente importante. Por esto es que decidimos pensar un poco mas la situación y encontrarle la vuelta para resolver en un tiempo razonable.
+Por último cabe destacar que la complejidad computacional de esta triangulación es de O($n^3$). Lo cual puede llegar a un cálculo sumamente extenso si nuestro n es considerablemente importante. Por esto es que decidimos pensar un poco mas la situación y encontrarle la vuelta para resolver en un tiempo razonable.
 
 \subsection{Matriz banda}
 
-Matriz banda es un caso especial de las matrices que ocurre cuando estas concentran toda su información cerca de la diagonal, más especificamente, la matriz tiene en su mayoría elementos nulos y los que no son nulos se concentrar a izquierda y derecha de la diagonal de la matriz, siendo el máximo de estas distancias la que determinaran el ancho de la banda con que se denomine a la matriz y buscandose que las mismas sean relativamente pequeñas en comparación del ancho de la matriz. Por ejemplo, si a lo sumo tiene $p$ elementos no nulos a la izquierda y $q$ a la derecha, esta matriz tendrá una banda de $p+q+1$. Hay casos particulares para denominar estas matrices, por ejemplo, cuando $p = q = 0$ esta se denomina diagonal, y en caso de $p = q = 1$  es una tridiagonal.
-La ventaja principal que proporcina este tipo de matriz es la optimización a la hora de su almacenamiento, ya que como la mayoría de los elementos son nulos y los no nulos tiene un ancho fijo, es posible guardarlos en una matriz mucho menor con solo el tamaño de la banda como ancho, ahorrando gran cantidad de memoria.
+Matriz banda es un caso especial de las matrices que ocurre cuando estas concentran toda su información cerca de la diagonal, más específicamente, la matriz tiene en su mayoría elementos nulos y los que no son nulos se concentrar a izquierda y derecha de la diagonal de la matriz, siendo el máximo de estas distancias la que determinaran el ancho de la banda con que se denomine a la matriz y buscandose que las mismas sean relativamente pequeñas en comparación del ancho de la matriz. Por ejemplo, si a lo sumo tiene $p$ elementos no nulos a la izquierda y $q$ a la derecha, esta matriz tendrá una banda de $p+q+1$. Hay casos particulares para denominar estas matrices, por ejemplo, cuando $p = q = 0$ esta se denomina diagonal, y en caso de $p = q = 1$  es una tridiagonal.
+La ventaja principal que proporciona este tipo de matriz es la optimización a la hora de su almacenamiento, ya que como la mayoría de los elementos son nulos y los no nulos tiene un ancho fijo, es posible guardarlos en una matriz mucho menor con solo el tamaño de la banda como ancho, ahorrando gran cantidad de memoria.
 
-Aca podemos ver un ejemplo de una matriz banda:
+Acá podemos ver un ejemplo de una matriz banda:
 
 \emph{ Matriz banda tridiagonal } 
 \[ \left( \begin{array}{ccccccc}
