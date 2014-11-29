@@ -2,7 +2,7 @@
 
 \subsection{Matriz normal}
 
-Como una primera forma de resolución planeamos el parabrisas como un sistema de ecuaciones (más adelante veremos que el mismo presenta una organización de los elementos no nulos que se denomina $``banda"$, pero por ahora no tendremos en cuenta esto y por consiguiente no realizaremos ninguna optimización al respecto), este se vería representado como una matriz, donde cada columna y cada fila representa a una posición especifica en el parabrisas pero que a su vez cada fila simboliza las ecuaciones que planteo para esa posición. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
+Como una primera forma de resolución planeamos el parabrisas como un sistema de ecuaciones (más adelante veremos que el mismo presenta una organización de los elementos no nulos que se denomina $``banda"$, pero por ahora no tendremos en cuenta esto y por consiguiente no realizaremos ninguna optimización al respecto), este se vería representado como una matriz, donde cada columna representa a una posición especifica en el parabrisas pero que a su vez cada fila simboliza los coeficientes de las ecuaciones que se plantea para esa posición. Por lo tanto la diagonal de la matriz representa al coeficiente de esa posición en el parabrisas.
 El parabrisas debe cumplir respetar 3 condiciones para el calculo de la temperatura.
 La primera es que la temperatura del borde es de -100 grados, por lo que deberá respetarse la siguiente ecuación:
 
@@ -74,7 +74,7 @@ Class Windshield{
 
 \subsection{Matriz Banda}
 
-En la sección anterior presentamos una forma de resolver nuestro problema representando el parabrisas como un sistema de ecuaciones y aplicando Eliminación Gaussiana. En este sección propondremos una optimización a esto, pero para esto primero necesitamos ver con qué cosas estamos tratando.
+En la sección anterior presentamos una forma de resolver nuestro problema representando el parabrisas como un sistema de ecuaciones y aplicando Eliminación Gaussiana. En este sección propondremos una optimización a esto. Y para eso primero necesitamos ver con qué cosas estamos tratando.
 
 Empecemos con un ejemplo, en este caso  tenemos un parabrisas de 6x6 granulado en 1 y una sanguijuela de radio 1 con temperatura de 500 en la primera posición.
 
@@ -100,15 +100,15 @@ Con lo que el sistema quedaría de la siguiente forma: \\
 \newpage
 
 
-Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del Parabrisas observamos que presenta las características de la matriz $``banda"$ explicada anteriormente. 
+Analizando la matriz del sistema de ecuaciones que se genera a partir de la representación del parabrisas observamos que presenta las características de la matriz $``banda"$ explicada anteriormente. 
 Este es un hecho importante ya que las matrices banda tienen características especiales (como vimos anteriormente) por las cuales es posible la optimización temporal y espacial para resolver el sistema de ecuaciones con eliminación gausseana. Además también tiene la característica de ser semi definida positiva, lo que hace que no sea necesario swapear filas.
 \subsubsection{Optimización}
 
 El problema de representar la matriz original es que la mayoría de los valores son 0 y solo importan los elementos de la banda de la matriz, por lo tanto una forma de optimizar espacialmente es solo guardar la banda, con lo que se logra reducir considerablemente el espacio en esta representación, ya que suponiendo que se tiene un parabrisas de $n$ filas y $m$ columnas, el tamaño de la matriz original sería de $(n*m)^2$, mientras que con la optimización de matriz banda queda de tamaño $(n*m)*(2*m+1) \approx (n*m^2)$ .
 
-El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotandola de forma que quede vertical, quedando en el centro los elementos de la diagonal dependiendo de lo que haya en esa posición, ya que en el caso de que sea vacía esta deberá tener coeficientes de las posiciones adyacentes. Además se adiciona una columna más para representar la temperatura en esa posición.
-Aúnque uno podría pensar que ya que solo hay 5 elementos no nulos máximo en cada fila se podria optimizar guardando esos 5 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
-La matriz banda tendra hasta un maximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si en la posición hace referencia al borde frío, esta fila tendra un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
+El método para construir la representación optimizada de la matriz banda es simple, se guarda la banda en una matriz pero rotándola de forma que quede vertical.  Además se adiciona una columna más para representar la temperatura en esa posición.
+Aunque uno podría pensar que ya que solo hay 5 elementos no nulos máximo en cada fila se podría optimizar guardando esos 5 coeficientes, pero debido a que luego se le aplicará el método de Back Substitution de la Eliminación Gausseana como método para resolver el sistema, esto hará que se generen valores no nulos dentro de la banda, por lo tanto el tamaño de esta matriz deberá ser lo suficiente como para poder trabajar sobre él y almacenar los valores parciales.
+La matriz banda tendrá hasta un máximo de 5 valores no nulos por fila dependiendo el tipo de posición de la misma, ya que si en la posición hace referencia al borde frío, esta fila tendrá un 1 como valor central y un -100 en la columna de resultados, esto se deduce a partir de la expresión 
 \begin{equation}
 T(x,y) = -100^o\textrm{C}~~~~~\textrm{si } x = 0,m \textrm{ \'o } y = 0,n. 
 \label{eq:borde}
@@ -120,7 +120,7 @@ T(x,y) = temp_{sanguijuela}
 \label{eq:borde}
 \end{equation}
 
-Y por último, en base a las ecuaciones que deben respetar las posiciones vacías vistas anteriormente, en la posición central que representa a la posición actual quedará un -4 y en las de arriba-abajo-izquierda-derecha un 1 en cada una, siendo referenciadas en la matriz banda por las posiciones de la izquierda y derecha de la central, y las que estan a distancia de la banda, por lo tanto, en las puntas de la fila de matriz, y al final de todo un 0 en la columna de resultado. Por lo tanto, cada fila que represente a una posición vacía tendra una distribución inicial de la siguiente forma:
+Y por último, en base a las ecuaciones que deben respetar las posiciones vacías vistas anteriormente, en la posición central que representa a la posición actual quedará un -4 y en las de arriba-abajo-izquierda-derecha un 1 en cada una, siendo referenciadas en la matriz banda por las posiciones de la izquierda y derecha de la central, y las que están a distancia de la banda, por lo tanto, en las puntas de la fila de matriz, y al final de todo un 0 en la columna de resultado. Por lo tanto, cada fila que represente a una posición vacía tendrá una distribución inicial de la siguiente forma:
 
 
 \[ \left( \begin{array}{ccccccccccc}
@@ -133,7 +133,7 @@ El algoritmo consta de dos etapas, la construcción de la matriz que representar
 \begin{verbatim}
 
 por cada posición del parabrisas //O(N*M)
-       pos = fila posicion + columna posicion * ancho;
+       pos = fila posición + columna posición * ancho;
 		
               si en esa posición hay una SANGUIJUELA:
 			
@@ -174,7 +174,7 @@ Hasta este punto tenemos construida la representación de la matriz original en 
 
 \paragraph{Resolución del sistema} \mbox{}\\
 
-Este algoritmo se basa basicamente en el algoritmo de eliminación gausseana para triangular y luego realizar un back sustitution para obtener el valor de los coeficientes.
+Este algoritmo se basa básicamente en el algoritmo de eliminación gausseana para triangular y luego realizar un back sustitution para obtener el valor de los coeficientes.
 Lo que es remarcable es el hecho de como trabaja en la matriz banda vertical como si fuese la banda en diagonal de la matriz original y la no necesidad de tener que intercambiar filas durante el proceso.
  
 \begin{verbatim}
@@ -230,7 +230,7 @@ En un parabrisas real el punto crítico se determina por el punto exacto del med
 \subsection{Solución Greedy}
 Esta solución consiste en ir seleccionando las sanguijuelas más cercanas al punto medio hasta que el punto central esté por debajo de 235 Cº. Al no ser una solución exacta es posible que eliminar la más cercana al centro no pertenezca a la mejor solución, pero es intuitivo suponer que la sanguijuela que más cause calor al punto medio esté cerca del mismo. \\
 Lo primero que se realiza es ordenar las sanguijuelas según su distancia al centro. Para esto utilizamos la función $sort()$ de C++ que utiliza como comparador el valor pre-calculado de distancia al centro. El orden de esta parte es $O(n.log(n))$ en donde n es la cantidad de sanguijuelas.\\
-Al ser una solución golosa (greedy), elige la siguiente sanguijuela siempre y cuando no se haya enfríado el punto medio y haya salido del estado crítico. La elección está dada por la sanguijuela más cerca todavía no elegida en una previa iteración.\\
+Al ser una solución golosa (greedy), elige la siguiente sanguijuela siempre y cuando no se haya enfriado el punto medio y haya salido del estado crítico. La elección está dada por la sanguijuela más cerca todavía no elegida en una previa iteración.\\
 Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad final es:  $O(n.log(n) + n*RA)$. Notar que esa última $n$ es en el peor caso que tengamos que eliminar todas las sanguijuelas, pero debería ser un $k < n$.
 
 
@@ -257,10 +257,10 @@ Suponiendo que la complejidad de rehacer el cálculo es $RA$, la complejidad fin
 
 
 \subsubsection{Espiral vs centrico}
-	Durante el desarrollo del algoritmo Greedy, nuestro primer acercamiento fue recorrer la matriz de forma espiral. El primer problema que encontramos fue que teníamos un cálculo muy grande para determinar dado un punto del parabrisas, qué sanguijuela era y que recorríamos partes de la matriz que no importaban (en especial los bordes). A su vez, tendíamos a alejarnos del objetivo principal que era preocuparnos por el centro. Es por eso que decidimos ordenar las sanguijuealas según su distancia al centro. Para ahorrar tiempo computacional, este dato está calculado en el momento de la creación de la sanguijuela para su posterior ordenamiento.
+	Durante el desarrollo del algoritmo Greedy, nuestro primer acercamiento fue recorrer la matriz de forma espiral. El primer problema que encontramos fue que teníamos un cálculo muy grande para determinar dado un punto del parabrisas, qué sanguijuela era y que recorríamos partes de la matriz que no importaban (en especial los bordes). A su vez, tendíamos a alejarnos del objetivo principal que era preocuparnos por el centro. Es por eso que decidimos ordenar las sanguijuelas según su distancia al centro. Para ahorrar tiempo computacional, este dato está calculado en el momento de la creación de la sanguijuela para su posterior ordenamiento.
 
 \subsection{Solución Random}\label{sec:solucionRandom}
-En esta solución seleccionamos de nuestro array de posiciones de sanguijuelas (que es el array recibido por parametro, osea con las posiciones sin discretizar) una al azar y la eliminamos. Luego ejecutamos de nuevo el cálculo de las temperaturas y chequeamos si el punto crìtico esta por debajo del 235 Cº.Si no lo está, elegimos otra al azar y repetimos el proceso hasta que lo esté. 
+En esta solución seleccionamos de nuestro array de posiciones de sanguijuelas (que es el array recibido por parámetro, con las posiciones sin discretizar) una al azar y la eliminamos. Luego ejecutamos de nuevo el cálculo de las temperaturas y chequeamos si el punto crítico esta por debajo del 235 Cº.Si no lo está, elegimos otra al azar y repetimos el proceso hasta que lo esté. 
 
 \begin{algorithm}
 \caption{RandomSolution}\label{euclid}

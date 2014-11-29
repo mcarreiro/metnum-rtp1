@@ -6,7 +6,7 @@
 
 \subsection{Temperatura en el punto crítico variando granularidad}
 
-En esta sección queremos ver que ocurre con la temperatura en el punto crítico para distintas granularidades de la misma instancia. Para tal fin vamos a presentar distintos tipos de instancias que pueden ser enriquecedoras para el analisis. Queremos aclarar que no nos pareció relevante el analisis con un sanguijuela sobre el punto crítico ya que la temperatura no sufriría variación alguna. Esto último es debido a que todavía no utilizaremos los metodos de eliminación de sanguijuelas para mantener el punto crítico a menos de 235º
+En esta sección queremos ver que ocurre con la temperatura en el punto crítico para distintas granularidades de la misma instancia. Para tal fin vamos a presentar distintos tipos de instancias que pueden ser enriquecedoras para el análisis. Queremos aclarar que no nos pareció relevante el análisis con un sanguijuela sobre el punto crítico ya que la temperatura no sufriría variación alguna. Esto último es debido a que todavía no utilizaremos los métodos de eliminación de sanguijuelas para mantener el punto crítico a menos de 235º
 
 \begin{description}
 
@@ -15,7 +15,7 @@ En esta sección queremos ver que ocurre con la temperatura en el punto crítico
 \item[Caso 3:] 5 sanguijuelas alineadas debajo del punto crítico.
 \end{description}
 
-Las condiciones del parabrisas que utilizaremos para los 5 casos seran similiares, un ancho y alto de 1024 (para tener un gran espacio de testeo y cantidad de divisores), con una temperatura de 400º para las sanguijuelas (para que influya pero que a su vez no sean tan determinantes) y un radio de 16 posiciones. El valor de las discretizaciones que elegimos para cada caso está limitado en función la cantidad de sanguijuelas ya que a medida que aumenta el valor la cantidad de posiciones disponibles en el parabrisas disminuye\\ \\
+Las condiciones del parabrisas que utilizaremos para los 5 casos serán similares, un ancho y alto de 1024 (para tener un gran espacio de testeo y cantidad de divisores), con una temperatura de 400º para las sanguijuelas (para que influya pero que a su vez no sean tan determinantes) y un radio de 16 posiciones. El valor de las discretizaciones que elegimos para cada caso está limitado en función la cantidad de sanguijuelas ya que a medida que aumenta el valor la cantidad de posiciones disponibles en el parabrisas disminuye\\ \\
 \newpage
 Caso 1:
 
@@ -165,7 +165,7 @@ Caso 3:
 
 \end{figure}
 
-Por lo que se puede observar en los gráficos de como va fluctuando la temperatura a medida que se aumenta el valor de discretización (que provoca disminución en la granuralidad) para los 3 casos de prueba y con el ultimo gráfico comparativo, como era de esperarse, la temperatura disminuye en el punto crítico, esto es debido a que a mayor granularidad las sanguijuelas tienen mas borde en el parabrisas para transferir el calor ya que dependiendo el radio de la sanguijuela provoca que ocupe más puntos en el parabrisas. Esto último del radio se puede ver cuando en los últimos gráficos de cada caso cuando la garrulidad es minima que las sanguijuelas pasan a ocupar una posición del parabrisas.
+Por lo que se puede observar en los gráficos de como va fluctuando la temperatura a medida que se aumenta el valor de discretización (que provoca disminución en la granularidad) para los 3 casos de prueba y con el ultimo gráfico comparativo, como era de esperarse, la temperatura disminuye en el punto crítico, esto es debido a que a mayor granularidad las sanguijuelas tienen mas borde en el parabrisas para transferir el calor ya que dependiendo el radio de la sanguijuela provoca que ocupe más puntos en el parabrisas. Esto último del radio se puede ver cuando en los últimos gráficos de cada caso cuando la garrulidad es minima que las sanguijuelas pasan a ocupar una posición del parabrisas.
 
 \newpage
 
@@ -247,7 +247,7 @@ Ahora veamos que obtenemos al aplicarle distintas veces el algoritmo de solució
 \end{center}
 \end{figure}
 Como podemos observar la solución óptima (la que menos sanguijuelas elimina), es la segunda. Pero como esta solución es completamente random en la primera corrida mata 2 sanguijuelas antes de elegir 
-la correcta y en la tercera 4. Sólo en la segunda elije en el primer intento la sanguijuela correcta. Se aplicó también para todas las granularidades antes mencionadas y se observó el mismo comportamiento erratico a la hora
+la correcta y en la tercera 4. Sólo en la segunda elige en el primer intento la sanguijuela correcta. Se aplicó también para todas las granularidades antes mencionadas y se observó el mismo comportamiento errático a la hora
 de matar sanguijuelas. 
 
 \clearpage
@@ -266,7 +266,7 @@ Veamos ahora para la misma matriz como se comporta nuestro otro algoritmo.
 \end{figure}
 
 
-En todas las corridas obtuvimos el mismo resultado y demoraron lo mismo. Si bien con las otras granularidades el tiempo no fué el mismo (a menor granularidad, osea menor cantidad de celdas,  menor tiempo de computo como vimos anteriormente) el resultado si lo fué. Era de esperarse, ya que efectivamente en este caso, la sanguijuela a eliminar era la del medio que naturalmente es la más cercana al punto crítico.
+En todas las corridas obtuvimos el mismo resultado y demoraron lo mismo. Si bien con las otras granularidades el tiempo no fue el mismo (a menor granularidad, es decir, menor cantidad de celdas,  menor tiempo de computo como vimos anteriormente) el resultado si lo fue. Era de esperarse, ya que efectivamente en este caso, la sanguijuela a eliminar era la del medio que naturalmente es la más cercana al punto crítico.
 \newpage
 
 \subsection{Caso solución no es el mas cercano}
@@ -285,7 +285,7 @@ Posiciónes sanguijuelas:(49, 38);(57, 60);(57, 37);(39, 37);(36, 47) \\*
 \end{center}
 \end{figure}
 
-Como podemos observar en las imágenes que están debajo, la solución greedy no es la óptima ya que mató a dos sanguijuelas y la random en algunos casos a una sola. Esto es debido a que la temperatura emitida por la sanguijuela mas cercana tiene un bajo impacto en el calor total recibido por el punto crítico, ya que este se encuentra `rodeado' de sanguijuelas. Como la sanguijuela mas cercana tiene otras dos cerca de ella que también irradian calor al pc, si matamos a esta el punto central sigue recibiendo un considerable calor de la zona en la que se encontraba. En cambio si matamos alguna de las sanguijuelas que están mas aisladas esto cambia. Veamoslo en las soluciones obtenidas por nuestras algoritmos. 
+Como podemos observar en las imágenes que están debajo, la solución greedy no es la óptima ya que mató a dos sanguijuelas y la random en algunos casos a una sola. Esto es debido a que la temperatura emitida por la sanguijuela mas cercana tiene un bajo impacto en el calor total recibido por el punto crítico, ya que este se encuentra `rodeado' de sanguijuelas. Como la sanguijuela mas cercana tiene otras dos cerca de ella que también irradian calor al pc, si matamos a esta el punto central sigue recibiendo un considerable calor de la zona en la que se encontraba. En cambio si matamos alguna de las sanguijuelas que están mas aisladas esto cambia. Veámoslo en las soluciones obtenidas por nuestras algoritmos. 
 \clearpage
 \begin{figure}[htb]
 \minipage{0.5\textwidth}
@@ -320,7 +320,7 @@ Como podemos observar en las imágenes que están debajo, la solución greedy no
 
 
 El greedy mató primero a la sanguijuela de la posición (49,38) ya que era la mas cercana. Sin embargo si mataba primero la (57,60) la temperatura en el punto crítico disminuía lo suficiente. Esto podemos corroborarlo observando la tercera solución del Random.
-El random por otro lado nos dió 3 resultados distintos de los cuales dos son válidos. Cabe destacar sin embargo que el erroneo nos lo devolvió 2 veces, por lo que podemos decir que tuvo un 50\% de efectividad. 
+El random por otro lado nos dio 3 resultados distintos de los cuales dos son válidos. Cabe destacar sin embargo que el erróneo nos lo devolvió 2 veces, por lo que podemos decir que tuvo un 50\% de efectividad. 
 
 \subsubsection{Variando la granularidad}
 
@@ -358,4 +358,4 @@ Como vimos anteriormente, la temperatura en el punto crítico varía según la g
 \endminipage\hfill 
 \end{figure}
 
-Como le aumentamos la granularidad aumentó la temperatura del punto central de tal forma que provocó que tampoco bastase eliminando una sola sangijuela (sea cual sea esta), obteniendo así la misma cantidad de sangijuelas tanto en al solución óptima como en la greedy. El Random esta vez devolvió un sólo resultado correcto ya que los otros dos mataron sanguijuelas de más.
+Como le aumentamos la granularidad aumentó la temperatura del punto central de tal forma que provocó que tampoco bastase eliminando una sola sanguijuela (sea cual sea esta), obteniendo así la misma cantidad de sanguijuelas tanto en al solución óptima como en la greedy. El Random esta vez devolvió un sólo resultado correcto ya que los otros dos mataron sanguijuelas de más.
