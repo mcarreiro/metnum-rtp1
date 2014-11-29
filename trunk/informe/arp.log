@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -715,7 +715,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: imagenes/matrizej.png Graphic file (type png)
 
 <use imagenes/matrizej.png>
-Package pdftex.def Info: imagenes/matrizej.png used on input line 24.
+Package pdftex.def Info: imagenes/matrizej.png used on input line 25.
 (pdftex.def)             Requested size: 463.73607pt x 301.12732pt.
  [7] [8 <./imagenes/matrizej.png>]
 <imagenes/matrizbandaej_instancia.png, id=45, 462.528pt x 346.896pt>
@@ -723,14 +723,14 @@ File: imagenes/matrizbandaej_instancia.png Graphic file (type png)
 
 <use imagenes/matrizbandaej_instancia.png>
 Package pdftex.def Info: imagenes/matrizbandaej_instancia.png used on input lin
-e 63.
+e 62.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
 <imagenes/matrizbandaej_temp.png, id=46, 586.8324pt x 442.2924pt>
 File: imagenes/matrizbandaej_temp.png Graphic file (type png)
 
 <use imagenes/matrizbandaej_temp.png>
-Package pdftex.def Info: imagenes/matrizbandaej_temp.png used on input line 64.
+Package pdftex.def Info: imagenes/matrizbandaej_temp.png used on input line 63.
 
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
  [9 <./imagenes/matrizbandaej_instancia.png (PNG copy)> <./imagenes/matrizbanda
@@ -739,21 +739,21 @@ ej_temp.png>] [10]
 File: imagenes/matrizbandaej.png Graphic file (type png)
 
 <use imagenes/matrizbandaej.png>
-Package pdftex.def Info: imagenes/matrizbandaej.png used on input line 132.
+Package pdftex.def Info: imagenes/matrizbandaej.png used on input line 131.
 (pdftex.def)             Requested size: 279.64284pt x 569.82498pt.
  [11] [12 <./imagenes/matrizbandaej.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Overfull \hbox (5.2323pt too wide) in paragraph at lines 172--172
+Overfull \hbox (5.2323pt too wide) in paragraph at lines 171--171
 []        \OT1/cmtt/m/n/10.95 // COMO ES BANDA ME FIJO SI EN LA DIAGONAL IZQ IN
 F HAY DISTINTO DE 0 PARA PIVOTEAR[] 
  []
 
 
-Overfull \hbox (33.97574pt too wide) in paragraph at lines 180--180
+Overfull \hbox (33.97574pt too wide) in paragraph at lines 179--179
 []             \OT1/cmtt/m/n/10.95 // y por ^^Sultimo actualizo los valores del
  parabrisas con las temperaturas actuales[] 
  []
@@ -1075,7 +1075,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on arp.pdf (29 pages, 1862073 bytes).
+Output written on arp.pdf (29 pages, 1863474 bytes).
 PDF statistics:
  238 PDF objects out of 1000 (max. 8388607)
  111 compressed objects within 2 object streams
