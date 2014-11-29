@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 20:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.30)  28 NOV 2014 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,114 +916,107 @@ Package pdftex.def Info: imagenes/comparacion_tiempos.png used on input line 17
 File: imagenes/test5_gran1.png Graphic file (type png)
 
 <use imagenes/test5_gran1.png>
-Package pdftex.def Info: imagenes/test5_gran1.png used on input line 193.
+Package pdftex.def Info: imagenes/test5_gran1.png used on input line 195.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
 
 <imagenes/test5.png, id=130, 586.8324pt x 442.2924pt>
 File: imagenes/test5.png Graphic file (type png)
  <use imagenes/test5.png>
-Package pdftex.def Info: imagenes/test5.png used on input line 199.
+Package pdftex.def Info: imagenes/test5.png used on input line 201.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
 
 <imagenes/test5_gran5.png, id=131, 586.8324pt x 442.2924pt>
 File: imagenes/test5_gran5.png Graphic file (type png)
 
 <use imagenes/test5_gran5.png>
-Package pdftex.def Info: imagenes/test5_gran5.png used on input line 208.
+Package pdftex.def Info: imagenes/test5_gran5.png used on input line 210.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
 
 <imagenes/test5_gran10.png, id=132, 586.8324pt x 442.2924pt>
 File: imagenes/test5_gran10.png Graphic file (type png)
 
 <use imagenes/test5_gran10.png>
-Package pdftex.def Info: imagenes/test5_gran10.png used on input line 214.
+Package pdftex.def Info: imagenes/test5_gran10.png used on input line 216.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
  [21 <./imagenes/test5_gran1.png> <./imagenes/test5.png> <./imagenes/test5_gran
 5.png> <./imagenes/test5_gran10.png>]
-File: imagenes/test5.png Graphic file (type png)
-
-<use imagenes/test5.png>
-Package pdftex.def Info: imagenes/test5.png used on input line 227.
-(pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
-
 <imagenes/random_1.png, id=140, 586.8324pt x 442.2924pt>
 File: imagenes/random_1.png Graphic file (type png)
 
 <use imagenes/random_1.png>
-Package pdftex.def Info: imagenes/random_1.png used on input line 239.
+Package pdftex.def Info: imagenes/random_1.png used on input line 231.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
 
 <imagenes/random_2.png, id=141, 586.8324pt x 442.2924pt>
 File: imagenes/random_2.png Graphic file (type png)
 
 <use imagenes/random_2.png>
-Package pdftex.def Info: imagenes/random_2.png used on input line 245.
+Package pdftex.def Info: imagenes/random_2.png used on input line 237.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
 
 <imagenes/random_3.png, id=142, 586.8324pt x 442.2924pt>
 File: imagenes/random_3.png Graphic file (type png)
 
 <use imagenes/random_3.png>
-Package pdftex.def Info: imagenes/random_3.png used on input line 253.
+Package pdftex.def Info: imagenes/random_3.png used on input line 245.
 (pdftex.def)             Requested size: 176.05107pt x 132.68874pt.
  [22
 
  <./imagenes/random_1.png> <./imagenes/random_2.png> <./imagenes/random_3.png>]
- [23]
 File: imagenes/random_2.png Graphic file (type png)
  <use imagenes/random_2.png>
-Package pdftex.def Info: imagenes/random_2.png used on input line 271.
+Package pdftex.def Info: imagenes/random_2.png used on input line 263.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
- [24
+ [23
 
 ]
-<imagenes/test6.png, id=155, 586.8324pt x 442.2924pt>
+<imagenes/test6.png, id=152, 586.8324pt x 442.2924pt>
 File: imagenes/test6.png Graphic file (type png)
  <use imagenes/test6.png>
-Package pdftex.def Info: imagenes/test6.png used on input line 291.
+Package pdftex.def Info: imagenes/test6.png used on input line 283.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
-<imagenes/test6_greedy.png, id=156, 586.8324pt x 442.2924pt>
+<imagenes/test6_greedy.png, id=153, 586.8324pt x 442.2924pt>
 File: imagenes/test6_greedy.png Graphic file (type png)
 
 <use imagenes/test6_greedy.png>
-Package pdftex.def Info: imagenes/test6_greedy.png used on input line 303.
+Package pdftex.def Info: imagenes/test6_greedy.png used on input line 293.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
-<imagenes/test6_random.png, id=157, 586.8324pt x 442.2924pt>
+<imagenes/test6_random.png, id=154, 586.8324pt x 442.2924pt>
 File: imagenes/test6_random.png Graphic file (type png)
 
 <use imagenes/test6_random.png>
-Package pdftex.def Info: imagenes/test6_random.png used on input line 310.
+Package pdftex.def Info: imagenes/test6_random.png used on input line 300.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
- [25 <./imagenes/test6.png> <./imagenes/test6_greedy.png> <./imagenes/test6_ran
-dom.png>]
+ [24 <./imagenes/test6.png>] [25 <./imagenes/test6_greedy.png> <./imagenes/test
+6_random.png>]
 <imagenes/test6_random_2.png, id=165, 586.8324pt x 442.2924pt>
 File: imagenes/test6_random_2.png Graphic file (type png)
 
 <use imagenes/test6_random_2.png>
-Package pdftex.def Info: imagenes/test6_random_2.png used on input line 319.
+Package pdftex.def Info: imagenes/test6_random_2.png used on input line 309.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
 <imagenes/test6_random_3.png, id=166, 586.8324pt x 442.2924pt>
 File: imagenes/test6_random_3.png Graphic file (type png)
 
 <use imagenes/test6_random_3.png>
-Package pdftex.def Info: imagenes/test6_random_3.png used on input line 325.
+Package pdftex.def Info: imagenes/test6_random_3.png used on input line 315.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
 <imagenes/test6_g08_greedy.png, id=167, 586.8324pt x 442.2924pt>
 File: imagenes/test6_g08_greedy.png Graphic file (type png)
 
 <use imagenes/test6_g08_greedy.png>
-Package pdftex.def Info: imagenes/test6_g08_greedy.png used on input line 342.
+Package pdftex.def Info: imagenes/test6_g08_greedy.png used on input line 332.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
 <imagenes/test6_g08_random.png, id=168, 586.8324pt x 442.2924pt>
 File: imagenes/test6_g08_random.png Graphic file (type png)
 
 <use imagenes/test6_g08_random.png>
-Package pdftex.def Info: imagenes/test6_g08_random.png used on input line 349.
+Package pdftex.def Info: imagenes/test6_g08_random.png used on input line 339.
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
  [26
 
@@ -1033,7 +1026,7 @@ st6_g08_greedy.png> <./imagenes/test6_g08_random.png>]
 File: imagenes/test6_g08_random_2.png Graphic file (type png)
 
 <use imagenes/test6_g08_random_2.png>
-Package pdftex.def Info: imagenes/test6_g08_random_2.png used on input line 358
+Package pdftex.def Info: imagenes/test6_g08_random_2.png used on input line 348
 .
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 
@@ -1041,7 +1034,7 @@ Package pdftex.def Info: imagenes/test6_g08_random_2.png used on input line 358
 File: imagenes/test6_g08_random_3.png Graphic file (type png)
 
 <use imagenes/test6_g08_random_3.png>
-Package pdftex.def Info: imagenes/test6_g08_random_3.png used on input line 365
+Package pdftex.def Info: imagenes/test6_g08_random_3.png used on input line 355
 .
 (pdftex.def)             Requested size: 234.72879pt x 176.91382pt.
 ) [27
@@ -1081,7 +1074,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on arp.pdf (30 pages, 1862668 bytes).
+Output written on arp.pdf (30 pages, 1863870 bytes).
 PDF statistics:
  241 PDF objects out of 1000 (max. 8388607)
  113 compressed objects within 2 object streams
